@@ -1,0 +1,41 @@
+/* ========================================================================== 
+   03. Shared Surfaces & Ambient Background
+   ========================================================================== */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at 50% 35%, #000, transparent 85%);
+}
+
+.ambient:before,
+.ambient:after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(95px);
+  opacity: 0.28;
+}
+
+.ambient:before {
+  background: #8b5cf6;
+  left: -250px;
+  top: -250px;
+}
+
+.ambient:after {
+  background: #06b6d4;
+  right: -280px;
+  bottom: -280px;
+}

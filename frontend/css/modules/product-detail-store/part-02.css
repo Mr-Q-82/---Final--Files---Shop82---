@@ -1,0 +1,327 @@
+
+.pd-dock-price span,
+.pd-dock-price small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.pd-dock-price small {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.pd-dock-qty {
+  grid-area: qty;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pd-dock-qty > small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.pd-add-to-cart {
+  grid-area: cta;
+  direction: rtl;
+  min-height: 54px;
+  border-radius: 16px;
+  font-size: 14px;
+  box-shadow: 0 17px 30px -17px var(--primary);
+}
+
+.pd-dock-benefits {
+  grid-area: benefits;
+  direction: rtl;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.pd-dock-benefits span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 7px;
+  border-right: 1px solid color-mix(in srgb, var(--primary) 10%, var(--border));
+  color: var(--text-soft);
+  text-align: center;
+  font-size: 9px;
+}
+
+.pd-dock-benefits span:first-child {
+  border-right: 0;
+}
+
+.pd-dock-benefits .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-3);
+}
+
+.pd-out-of-stock {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.pd-out-of-stock div {
+  display: grid;
+  gap: 3px;
+}
+
+.pd-out-of-stock b {
+  color: var(--danger);
+}
+
+.pd-out-of-stock span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.spec-table td {
+  padding: 11px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-table td:first-child {
+  color: var(--muted);
+  width: 40%;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin: 24px 0 16px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.tab.on {
+  background: var(--grad);
+  color: #fff;
+  border-color: transparent;
+}
+
+.product-community-section,
+.expert-description { color: var(--text-soft); line-height: 1.9; }
+.community-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 6px 0 18px; }
+.community-head h3, .expert-description h2, .expert-description h3 { margin: 0; color: var(--text); }
+.community-head p { margin: 3px 0 0; color: var(--muted); font-size: 12px; }
+.community-form { padding: 18px; margin-bottom: 14px; border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border)); }
+.community-list { display: grid; gap: 12px; }
+.community-card { padding: 18px; border: 1px solid var(--border); border-radius: 16px; background: color-mix(in srgb, var(--surface-solid) 88%, var(--primary) 2%); }
+.question-author { display: flex; align-items: center; gap: 10px; }
+.question-author small { display: block; color: var(--muted); font-size: 10px; }
+.community-avatar { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: var(--grad); font-weight: 900; }
+.question-text { margin: 14px 0; color: var(--text); }
+.official-answer, .user-answer { padding: 12px 14px; margin-top: 9px; border-radius: 12px; border-right: 3px solid var(--primary); background: var(--grad-soft); }
+.user-answer { border-right-color: var(--success); background: color-mix(in srgb, var(--success) 8%, var(--surface-solid)); }
+.official-answer p, .user-answer p { margin: 3px 0 0; }
+.reply-button { margin-top: 12px; }
+.inline-reply { display: flex; gap: 8px; align-items: flex-end; margin-top: 10px; }
+.inline-reply textarea { flex: 1; }
+.expert-description header { padding: 22px; border-radius: 18px; background: var(--grad-soft); }
+.expert-description header > span { color: var(--primary); font-size: 12px; font-weight: 900; }
+.expert-description section { padding: 20px 6px 6px; }
+.expert-spec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.expert-spec-grid > div { padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.expert-spec-grid small, .expert-spec-grid strong { display: block; }
+.expert-spec-grid small { color: var(--muted); }
+.expert-spec-grid strong { color: var(--text); font-size: 16px; }
+.expert-spec-grid p { margin: 5px 0 0; font-size: 11px; }
+
+@media (max-width: 640px) {
+  .community-head, .inline-reply { align-items: stretch; flex-direction: column; }
+  .community-head .btn { width: 100%; }
+  .expert-spec-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1180px) {
+  .pd {
+    grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
+  }
+  .pd-tech-rail {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .pd-tech-rail-title {
+    grid-column: 1 / -1;
+  }
+  .pd-tech-item {
+    border-top: 1px solid color-mix(in srgb, var(--primary) 8%, var(--border));
+  }
+  .pd-tech-item:not(:last-child)::after {
+    display: none;
+  }
+  .pd-purchase-dock {
+    grid-template-columns: minmax(180px, 0.7fr) auto minmax(220px, 1fr);
+    grid-template-areas:
+      "price qty cta"
+      "benefits benefits benefits";
+  }
+  .pd-dock-benefits {
+    grid-column: 1 / -1;
+    padding-top: 8px;
+    border-top: 1px solid color-mix(in srgb, var(--primary) 8%, var(--border));
+  }
+}
+
+@media (max-width: 768px) {
+  .pd {
+    gap: 14px;
+    padding: 14px;
+    border-radius: 22px;
+  }
+  .pd-gallery {
+    grid-row: 1;
+  }
+  .pd-info {
+    grid-row: 2;
+    padding-inline: 3px;
+  }
+  .pd-tech-rail {
+    grid-row: 3;
+    grid-column: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pd-purchase-dock {
+    grid-row: 4;
+    grid-column: 1;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "price qty"
+      "cta cta"
+      "benefits benefits";
+  }
+  .pd-add-to-cart {
+    grid-column: 1 / -1;
+  }
+  .pd-dock-benefits {
+    grid-column: 1 / -1;
+  }
+  .pd-gallery .main-img {
+    height: min(86vw, 440px);
+  }
+}
+
+@media (max-width: 520px) {
+  .pd-info h1 {
+    font-size: 21px;
+  }
+  .pd-secondary-actions {
+    grid-template-columns: 1fr;
+  }
+  .pd-tech-rail {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pd-purchase-dock {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "price"
+      "qty"
+      "cta"
+      "benefits";
+    padding: 14px;
+  }
+  .pd-dock-qty,
+  .pd-dock-price {
+    align-items: center;
+    text-align: center;
+  }
+  .pd-add-to-cart,
+  .pd-dock-benefits {
+    grid-column: 1;
+  }
+  .pd-dock-benefits {
+    grid-template-columns: 1fr;
+  }
+  .pd-dock-benefits span {
+    justify-content: flex-start;
+    border-right: 0;
+    border-top: 1px solid color-mix(in srgb, var(--primary) 8%, var(--border));
+  }
+  .pd-out-of-stock {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* Compact product detail: two useful columns without decorative empty space. */
+@media (min-width: 769px) {
+  .pd {
+    grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "info gallery"
+      "info tech"
+      "dock dock";
+    align-items: start;
+    gap: 16px;
+    padding: 20px;
+  }
+  .pd-gallery {
+    grid-area: gallery;
+    align-self: start;
+    height: max-content;
+  }
+  .pd-info { grid-area: info; padding: 7px 3px 0; }
+  .pd-tech-rail {
+    grid-area: tech;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-self: start;
+    gap: 7px;
+    padding: 9px;
+    border-radius: 18px;
+  }
+  .pd-tech-item {
+    grid-template-columns: 32px minmax(0, 1fr);
+    min-height: 58px;
+    padding: 8px;
+    border: 1px solid color-mix(in srgb, var(--primary) 9%, var(--border));
+    border-radius: 13px;
+    background: color-mix(in srgb, var(--surface-solid) 88%, transparent);
+  }
+  .pd-tech-item:not(:last-child)::after { display: none; }
+  .pd-tech-icon { width: 32px; height: 32px; border-radius: 10px; }
+  .pd-tech-icon .icon { width: 16px; height: 16px; }
+  .pd-gallery .main-img {
+    height: clamp(310px, 27vw, 430px);
+    aspect-ratio: 4 / 3;
+  }
+  .pd-purchase-dock { grid-area: dock; grid-column: auto; }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .pd { grid-template-columns: minmax(330px, .95fr) minmax(0, 1.05fr); }
+  .pd-tech-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pd-purchase-dock {
+    grid-template-columns: minmax(170px, .7fr) auto minmax(220px, 1fr);
+    grid-template-areas: "price qty cta" "benefits benefits benefits";
+  }
+}

@@ -1,0 +1,271 @@
+/* ========================================================================== 
+   13. Modals, Forms & Confirmation Dialogs
+   ========================================================================== */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(4, 7, 18, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  width: min(700px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 25px;
+  border-radius: 24px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.full {
+  grid-column: 1/-1;
+}
+
+.save-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.save-row .primary {
+  width: auto;
+  margin-right: auto;
+}
+
+.secondary {
+  padding: 11px 17px;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.danger-btn {
+  padding: 11px 17px;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  font-weight: 800;
+}
+
+.confirm-modal {
+  width: min(430px, 100%);
+  text-align: center;
+}
+
+.confirm-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 15px;
+  border-radius: 18px;
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.12);
+  font-size: 27px;
+}
+
+.confirm-modal p {
+  margin: 10px 0 0;
+  color: var(--soft);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.flash-product-picker {
+  max-height: 260px;
+  display: grid;
+  gap: 8px;
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.flash-product-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.flash-product-option:hover,
+.flash-product-option:has(input:checked) {
+  border-color: var(--primary);
+  background: rgba(109, 40, 217, 0.09);
+}
+
+.flash-product-option input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary);
+}
+
+.flash-product-option span {
+  display: grid;
+  gap: 4px;
+}
+
+.flash-product-option small,
+.field-hint {
+  color: var(--soft);
+  font-size: 11px;
+}
+
+.jalali-picker {
+  position: relative;
+}
+
+.jalali-picker-trigger {
+  width: 100%;
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text);
+  background: var(--bg);
+  text-align: right;
+}
+
+.jalali-picker-trigger:hover {
+  border-color: var(--primary);
+}
+
+.jalali-picker-trigger small {
+  direction: ltr;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.jalali-calendar {
+  position: relative;
+  z-index: 4;
+  margin-top: 8px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: var(--surface-solid);
+  box-shadow: var(--shadow);
+}
+
+.jalali-calendar-head,
+.jalali-calendar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.jalali-calendar-head button {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: var(--primary);
+  background: rgba(109, 40, 217, 0.1);
+  font-size: 20px;
+}
+
+.jalali-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.jalali-calendar-grid.weekdays span {
+  color: var(--soft);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.jalali-calendar-grid.days button,
+.jalali-calendar-grid.days > span {
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+}
+
+.jalali-calendar-grid.days button {
+  color: var(--text);
+  background: transparent;
+}
+
+.jalali-calendar-grid.days button:hover {
+  color: var(--primary);
+  background: rgba(109, 40, 217, 0.09);
+}
+
+.jalali-calendar-grid.days button.selected {
+  color: #fff;
+  background: var(--grad);
+  box-shadow: 0 7px 16px -8px var(--primary);
+}
+
+.jalali-calendar-footer {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid var(--border);
+}
+
+.jalali-calendar-footer label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+}
+
+.jalali-calendar-footer input[type=time] {
+  width: 105px;
+  padding: 8px;
+}
+
+.jalali-calendar-footer .primary,
+.jalali-calendar-footer .secondary {
+  width: auto;
+  margin: 0;
+  padding: 8px 12px;
+}

@@ -1,0 +1,192 @@
+.pill.gaming {
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: #fff;
+  background: linear-gradient(120deg, #7c3aed, #06b6d4);
+}
+
+/* ========================================================================== 
+   12. Data Tables, Badges & Row Actions
+   ========================================================================== */
+.table-card {
+  overflow: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+th,
+td {
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  font-size: 10px;
+}
+
+th {
+  color: var(--soft);
+  background: rgba(139, 92, 246, 0.04);
+}
+
+td b {
+  font-size: 11px;
+}
+
+.pill {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 9px;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.pill.green {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.pill.yellow {
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.pill.red {
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.actions button {
+  width: 29px;
+  height: 29px;
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.actions .table-action {
+  width: auto;
+  min-width: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  font-size: 10px;
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.actions .table-action:hover {
+  transform: translateY(-1px);
+}
+
+.actions .edit-action {
+  color: var(--primary);
+  border-color: rgba(109, 40, 217, 0.2);
+  background: rgba(109, 40, 217, 0.09);
+}
+
+.actions .delete-action {
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.09);
+}
+
+.empty {
+  text-align: center;
+  padding: 60px;
+  color: var(--soft);
+}
+
+.gaming-quick-toggle {
+  width: 42px;
+  height: 29px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: 0.25s ease;
+}
+
+.gaming-quick-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gaming-quick-toggle span {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  color: var(--soft);
+  background: rgba(148, 163, 184, 0.15);
+  filter: grayscale(1);
+  transition: 0.25s ease;
+}
+
+.gaming-quick-toggle.is-on {
+  justify-content: flex-end;
+  border-color: rgba(6, 182, 212, 0.45);
+  background: linear-gradient(120deg, rgba(124, 58, 237, 0.14), rgba(6, 182, 212, 0.14));
+}
+
+.gaming-quick-toggle.is-on span {
+  color: #fff;
+  filter: none;
+  background: linear-gradient(120deg, #7c3aed, #06b6d4);
+}
+
+.gaming-quick-toggle:has(input:focus-visible) {
+  outline: 3px solid rgba(124, 58, 237, 0.2);
+}
+
+.gaming-quick-toggle:has(input:disabled) {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.category-recommendations-admin {
+  display: grid;
+  gap: 18px;
+}
+
+.recommendation-form-card {
+  padding: 20px;
+}
+
+.recommendation-form {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(260px, 2fr) 140px auto;
+  align-items: end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.recommendation-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--soft);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .recommendation-form {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,399 @@
+
+.brand-slide b {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.15px;
+}
+
+@keyframes brands-loop {
+  to {
+    transform: translateX(calc(-50% - 6.5px));
+  }
+}
+.home-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.home-section-head .section-title {
+  margin: 0;
+}
+
+.home-slider-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-arrow {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text);
+  background: var(--surface-solid);
+  box-shadow: var(--shadow);
+  font-size: 22px;
+  transition: 0.2s;
+}
+
+.slider-arrow:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.product-carousel-shell {
+  position: relative;
+}
+
+.product-carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 4px 18px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.product-carousel-track.is-dragging,
+.amazing-products.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+.product-carousel-track img,
+.amazing-products img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.product-carousel-track::-webkit-scrollbar,
+.amazing-products::-webkit-scrollbar {
+  display: none;
+}
+
+.product-carousel-track > .pcard {
+  flex: 0 0 min(285px, 82vw);
+  scroll-snap-align: start;
+}
+
+.amazing-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  overflow: hidden;
+  padding: 14px;
+  border-radius: 24px;
+  background: var(--amazing-gradient, var(--grad));
+  box-shadow: 0 25px 55px -30px var(--amazing-accent, rgba(109, 40, 217, 0.72));
+}
+
+.amazing-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 15px;
+  color: #fff;
+  text-align: center;
+}
+
+.amazing-mark {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.amazing-side h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.amazing-side p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.amazing-countdown {
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.amazing-countdown span {
+  min-width: 34px;
+  padding: 6px 5px;
+  border-radius: 9px;
+  color: var(--primary);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.amazing-countdown b {
+  color: #fff;
+}
+
+.amazing-side .btn {
+  margin-top: 4px;
+  color: var(--primary);
+  background: #fff;
+  box-shadow: none;
+}
+
+.amazing-track-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.amazing-products {
+  height: 100%;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  border-radius: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-showcase-product,
+  .shop-showcase-image img,
+  .shop-showcase-image svg,
+  .amazing-product,
+  .amazing-image img,
+  .amazing-image svg {
+    transition: none;
+  }
+}
+.amazing-product {
+  flex: 0 0 205px;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  background: var(--surface-solid);
+  scroll-snap-align: start;
+  text-decoration: none;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.amazing-product:hover {
+  z-index: 2;
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.amazing-product:first-child {
+  border-radius: 16px;
+}
+
+.amazing-product:last-child {
+  border-radius: 16px;
+}
+
+.amazing-image {
+  height: 145px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--primary);
+}
+
+.amazing-image img {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.amazing-image svg {
+  width: 75px;
+  height: 75px;
+  transition: transform 0.4s ease;
+}
+
+.amazing-product:hover .amazing-image img {
+  transform: scale(1.06);
+}
+
+.amazing-product:hover .amazing-image svg {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.amazing-product h3 {
+  min-height: 42px;
+  margin: 10px 0 8px;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.amazing-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.amazing-price-row strong {
+  font-size: 14px;
+}
+
+.amazing-price-row small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.amazing-discount {
+  padding: 3px 8px;
+  border-radius: 20px;
+  color: #fff;
+  background: #e11d48;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.amazing-old-price {
+  min-height: 20px;
+  margin-top: 4px;
+  padding-left: 28px;
+  color: var(--muted);
+  text-align: left;
+  text-decoration: line-through;
+  font-size: 11px;
+}
+
+.amazing-arrow {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: var(--surface-solid);
+  box-shadow: var(--shadow-lg);
+  font-size: 22px;
+}
+
+.amazing-arrow.prev {
+  right: 8px;
+}
+
+.amazing-arrow.next {
+  left: 8px;
+}
+
+.empty-home-products {
+  width: 100%;
+  padding: 45px 20px;
+  color: var(--text-soft);
+  background: var(--surface-solid);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .shop-showcase {
+    grid-template-columns: 175px minmax(0, 1fr);
+  }
+  .shop-showcase-product {
+    flex-basis: 205px;
+  }
+  .amazing-shell {
+    grid-template-columns: 170px minmax(0, 1fr);
+  }
+  .amazing-product {
+    flex-basis: 185px;
+  }
+}
+@media (max-width: 680px) {
+  .shop-showcase {
+    display: block;
+    padding: 10px;
+  }
+  .shop-showcase-side {
+    min-height: 200px;
+  }
+  .shop-showcase-product {
+    flex-basis: 190px;
+  }
+  .brand-slide {
+    width: 112px;
+    min-height: 135px;
+  }
+  .brand-visual {
+    height: 76px;
+  }
+  .brand-visual span {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    font-size: 18px;
+  }
+  .amazing-shell {
+    display: block;
+    padding: 10px;
+  }
+  .amazing-side {
+    min-height: 210px;
+  }
+  .amazing-product {
+    min-height: 295px;
+  }
+  .home-section-head {
+    align-items: flex-start;
+  }
+  .home-section-head .btn {
+    display: none;
+  }
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}

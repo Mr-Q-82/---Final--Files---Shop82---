@@ -1,0 +1,143 @@
+/* ========================================================================== 
+   16. Extended Dashboard Layout & Widgets
+   ========================================================================== */
+.mobile-toggle {
+  display: none;
+}
+
+.dash-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.dash-tools > div {
+  display: flex;
+  gap: 8px;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 0.8fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.dash-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.donut {
+  width: 170px;
+  aspect-ratio: 1;
+  margin: 10px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.donut:after {
+  content: "";
+  position: absolute;
+  width: 112px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--solid);
+}
+
+.donut-center {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.donut-center b {
+  display: block;
+  font-size: 22px;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.legend span {
+  font-size: 9px;
+  color: var(--soft);
+}
+
+.legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.wide-card {
+  grid-column: span 2;
+}
+
+.mini-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mini-row:last-child {
+  border: 0;
+}
+
+.mini-row small {
+  display: block;
+  color: var(--soft);
+  margin-top: 4px;
+}
+
+.spark-bars {
+  height: 190px;
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  padding-top: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.spark-col {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 6px;
+}
+
+.spark-bar {
+  width: 65%;
+  min-width: 10px;
+  border-radius: 8px 8px 2px 2px;
+  background: var(--grad);
+  box-shadow: 0 9px 18px -10px var(--primary);
+}
+
+.spark-col small {
+  font-size: 8px;
+  color: var(--muted);
+  white-space: nowrap;
+}

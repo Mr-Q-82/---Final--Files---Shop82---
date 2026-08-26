@@ -1,0 +1,36 @@
+/* ========================================================================== 
+   06. Primary Actions & Feedback Messages
+   ========================================================================== */
+.primary {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 13px;
+  color: #fff;
+  background: var(--grad);
+  font-weight: 800;
+  box-shadow: 0 13px 28px -14px var(--primary);
+}
+
+.hint {
+  margin-top: 15px !important;
+  text-align: center;
+  font-size: 10px !important;
+}
+
+.error {
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.1);
+  font-size: 11px;
+}
+
+.success {
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.12);
+  font-size: 11px;
+}

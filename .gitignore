@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+media/
+.pytest_cache/
+node_modules/
+test-results/
+playwright-report/
+backend/backups/*.json.gz
+backend/backups/*.zip
+*.sqlite3-journal

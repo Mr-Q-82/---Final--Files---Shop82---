@@ -1,0 +1,41 @@
+/* ========================================================================== 
+   19. Admin Select Menus
+   ========================================================================== */
+.toolbar > select,
+select.admin-select {
+  display: block;
+  min-width: 210px;
+  min-height: 44px;
+  padding: 10px 40px 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: 0;
+  color: var(--text) !important;
+  background-color: var(--solid) !important;
+  direction: rtl;
+  cursor: pointer;
+  color-scheme: light;
+}
+
+.toolbar > select:focus,
+select.admin-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+}
+
+.toolbar > select option,
+select.admin-select option {
+  color: #111827 !important;
+  background: #fff !important;
+}
+
+html[data-theme=dark] .toolbar > select,
+html[data-theme=dark] select.admin-select {
+  color-scheme: dark;
+}
+
+html[data-theme=dark] .toolbar > select option,
+html[data-theme=dark] select.admin-select option {
+  color: #eef2ff !important;
+  background: #11172d !important;
+}

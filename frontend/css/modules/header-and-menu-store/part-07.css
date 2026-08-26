@@ -1,0 +1,191 @@
+
+.mega .mega-cat-icon {
+  width: 35px;
+  height: 35px;
+  flex-basis: 35px;
+  color: #6d28d9;
+  background: #eee9ff;
+}
+
+.mega .mega-cat.active .mega-cat-icon {
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #0891b2);
+}
+
+.mega .mega-cat-text b { color: currentColor; }
+.mega .mega-cat-text small { color: var(--mega-muted); }
+
+.mega .mega-content {
+  min-height: 0;
+  padding: 4px 3px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--mega-surface) !important;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--primary) 65%, transparent) transparent;
+}
+
+.mega .mega-content-head {
+  position: sticky;
+  top: -4px;
+  z-index: 4;
+  align-items: center;
+  padding: 8px 8px 13px;
+  border-color: #e8e8f2;
+  background: var(--mega-surface) !important;
+}
+
+[data-theme="dark"] .mega .mega-content-head,
+body.dark .mega .mega-content-head {
+  border-color: #30364a;
+}
+
+.mega .mega-heading-block > span,
+.mega .mega-products-heading > small,
+.mega .mega-product-info small,
+.mega .mega-muted-row {
+  color: var(--mega-muted);
+}
+
+.mega .mega-category-heading-link,
+.mega .mega-category-heading-link h3,
+.mega .mega-col h4,
+.mega .mega-product-info b {
+  color: var(--mega-ink);
+}
+
+.mega .mega-category-stats small {
+  border-color: #e4e1f2;
+  color: #4b5563;
+  background: var(--mega-surface-soft);
+}
+
+[data-theme="dark"] .mega .mega-category-stats small,
+body.dark .mega .mega-category-stats small {
+  color: #cbd5e1;
+  border-color: #303850;
+}
+
+.mega .mega-content-head > button {
+  min-width: 108px;
+  color: #6d28d9;
+  border-color: #d9cffb;
+  background: #f4f0ff;
+}
+
+.mega .mega-groups {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 10px;
+  padding: 0 4px 4px;
+}
+
+.mega .mega-group {
+  padding: 13px;
+  border: 1px solid #e6e7f0;
+  border-radius: 13px;
+  background: var(--mega-surface-soft) !important;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .mega .mega-group,
+body.dark .mega .mega-group {
+  border-color: #2f374f;
+}
+
+.mega .mega-col h4 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e7e7f0;
+}
+
+[data-theme="dark"] .mega .mega-col h4,
+body.dark .mega .mega-col h4 {
+  border-color: #30374c;
+}
+
+.mega .mega-gaming-category-link {
+  margin-bottom: 6px;
+  color: #5b21b6;
+  border-color: #d6cbfb;
+  background: #f1edff;
+}
+
+.mega .mega-subcategory-list,
+.mega .mega-brand-list {
+  max-height: 150px;
+}
+
+.mega .mega-col a {
+  color: #344054;
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .mega .mega-col a,
+body.dark .mega .mega-col a {
+  color: #d7dceb;
+}
+
+.mega .mega-col a:hover {
+  color: #6d28d9;
+  background: #eee9ff;
+}
+
+.mega .mega-brand-avatar {
+  background: linear-gradient(135deg, #6d28d9, #0891b2);
+}
+
+.mega .mega-products-group {
+  background: var(--mega-surface) !important;
+}
+
+.mega .mega-product-list { gap: 8px; }
+
+.mega .mega-product-card {
+  border-color: #e2e4ed;
+  background: var(--mega-surface) !important;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, .035);
+}
+
+[data-theme="dark"] .mega .mega-product-card,
+body.dark .mega .mega-product-card {
+  border-color: #303850;
+}
+
+.mega .mega-product-card:hover {
+  border-color: #bba7f7;
+  background: var(--mega-surface-tint) !important;
+  box-shadow: 0 10px 24px rgba(109, 40, 217, .10);
+}
+
+.mega .mega-product-visual {
+  background: #eee9ff;
+}
+
+.mega .mega-product-price { color: #6d28d9; }
+
+.mega .mega-promo {
+  min-height: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(160deg, #5b21b6 0%, #7c3aed 55%, #0e7490 135%) !important;
+  box-shadow: none;
+}
+
+.mega-overlay {
+  background: rgba(8, 12, 24, .48);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+@media (max-width: 1120px) and (min-width: 769px) {
+  .mega.glass {
+    grid-template-columns: 220px minmax(0, 1fr);
+    overflow-y: auto;
+  }
+  .mega .mega-promo {
+    min-height: 138px;
+  }
+}

@@ -1,0 +1,143 @@
+/* ============================================================
+   8) CART / DRAWER
+   ============================================================ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2147483600;
+  animation: fadeUp 0.2s;
+}
+
+.site-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8, 15, 30, 0.58);
+  backdrop-filter: blur(5px);
+}
+
+.site-confirm {
+  width: min(420px, 100%);
+  padding: 26px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+.site-confirm-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff5f6d, #ef3340);
+}
+
+.site-confirm h3 {
+  margin: 0 0 10px;
+}
+
+.site-confirm p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.site-confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(440px, 100%);
+  z-index: 2147483601;
+  background: var(--bg-2);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+.drawer-head {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-body {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.cart-item .ci-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background: var(--grad-soft);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.cart-item .ci-img svg {
+  width: 40px;
+  height: 40px;
+  color: var(--primary);
+}
+
+.drawer-foot {
+  padding: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.sum-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text-soft);
+}
+
+.sum-row.total {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--text);
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+  margin-top: 6px;
+}

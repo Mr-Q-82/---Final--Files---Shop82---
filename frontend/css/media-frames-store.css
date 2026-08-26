@@ -1,0 +1,167 @@
+/* Uploaded media frame contract: uploaded assets stay inside their owner. */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Home carousel: preserve the designed card border around the image. */
+.hero-showcase-card {
+  isolation: isolate;
+  contain: paint;
+  box-shadow: none !important;
+}
+
+.hero-showcase-card--active,
+.hero-showcase-card--previous,
+.hero-showcase-card--next,
+.hero-showcase-card--previous:hover,
+.hero-showcase-card--next:hover {
+  box-shadow: none !important;
+}
+
+.hero-showcase-media {
+  inset: 8px;
+  z-index: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: calc(23px - 8px);
+  contain: paint;
+}
+
+.hero-showcase-media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-showcase-card.has-product .hero-showcase-media {
+  inset: 8px 8px auto;
+  width: auto;
+}
+
+.hero-showcase-card.has-product .hero-showcase-media > img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 8px;
+  object-fit: contain;
+}
+
+/* Full-bleed artwork: crop only inside the rounded frame. */
+.gaming-hero-stage,
+.home-promo-banner {
+  isolation: isolate;
+  overflow: hidden;
+  contain: paint;
+}
+
+.gaming-hero-stage > img,
+.home-promo-banner > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Quick-link captions intentionally float below the card. Keep only their
+   images from scaling outside the visual frame. */
+.hero-paths button > img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-paths button:hover > img {
+  transform: none;
+  filter: saturate(1.08) contrast(1.03);
+}
+
+/* Category artwork is a clipped background layer. */
+.cat-card,
+.gaming-category-card {
+  isolation: isolate;
+  overflow: hidden;
+  contain: paint;
+}
+
+.cat-card-image,
+.gaming-category-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Product media remains clipped to its owner. Card photos intentionally fill
+   their frame from the centre; detail/gallery images remain fully visible. */
+.pcard .thumb,
+.pd-gallery .main-img,
+.thumbs button,
+.brand-visual,
+.gallery-item,
+.admin-brand-logo-preview,
+.promo-banner-admin-item {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  contain: paint;
+}
+
+.pcard .thumb > img,
+.pd-gallery .main-img > img,
+.thumbs button > img,
+.brand-visual > img,
+.gallery-item > img,
+.admin-brand-logo-preview > img,
+.promo-banner-admin-item > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.pcard .thumb > img {
+  padding: 0;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+@media (max-width: 1000px) {
+  .hero-showcase-media {
+    inset: 7px;
+    border-radius: calc(19px - 7px);
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-showcase-media {
+    inset: 5px;
+    border-radius: calc(16px - 5px);
+  }
+}

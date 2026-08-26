@@ -1,0 +1,119 @@
+/* ============================================================
+   FULL-WIDTH STOREFRONT LAYOUT
+   Removes the legacy 1280px desktop cap while keeping a small,
+   responsive safe area so controls never touch the viewport edge.
+   ============================================================ */
+:root {
+  --store-page-gutter: 30px;
+}
+
+body {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.container {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--store-page-gutter);
+}
+
+.hdr-inner {
+  width: calc(100% - (var(--store-page-gutter) * 2));
+  max-width: none;
+  margin: 10px var(--store-page-gutter);
+  padding-inline: clamp(10px, 1.1vw, 20px);
+}
+
+.nav-list {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--store-page-gutter);
+}
+
+.mega {
+  right: var(--store-page-gutter);
+  left: var(--store-page-gutter);
+}
+
+.hero,
+.gaming-container,
+.shop-layout,
+.home-section,
+.home-products-section,
+.catalog-section,
+.categories-section {
+  width: 100%;
+  max-width: none;
+}
+
+.gaming-hero-slider {
+  width: 100%;
+  max-width: none;
+}
+
+/* Use the extra desktop width for more products instead of stretching cards. */
+@media (min-width: 1500px) {
+  .prod-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .cat-strip {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 2050px) {
+  .prod-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .cat-strip {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  :root {
+    --store-page-gutter: 20px;
+  }
+
+  .hdr-inner {
+    width: calc(100% - 40px);
+    margin-inline: 20px;
+  }
+
+  .mega {
+    right: 20px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --store-page-gutter: 12px;
+  }
+
+  .hdr-inner {
+    width: calc(100% - 24px);
+    margin-inline: 12px;
+  }
+
+  .mega {
+    right: 12px;
+    left: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --store-page-gutter: 8px;
+  }
+
+  .hdr-inner {
+    width: calc(100% - 16px);
+    margin-inline: 8px;
+  }
+}

@@ -1,0 +1,179 @@
+.gaming-reset-price {
+  width: 100%;
+  margin-top: 8px;
+}
+.gaming-last-filter {
+  border: 0;
+}
+.gaming-sort-bar {
+  border-color: color-mix(in srgb, #7c3aed 20%, var(--border));
+}
+.gaming-sort-bar b {
+  font-size: 13px;
+}
+.gaming-catalog-message {
+  padding: 40px;
+  text-align: center;
+}
+.gaming-products-sentinel {
+  height: 1px;
+}
+
+@media (max-width: 680px) {
+  .gaming-container {
+    padding-top: 10px;
+  }
+  .gaming-shop-layout .filters {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+  .gaming-hero-stage {
+    height: clamp(185px, 52vw, 235px);
+    min-height: 0;
+    border-radius: 18px;
+  }
+  .gaming-hero-stage::before {
+    background: linear-gradient(90deg, rgba(3, 6, 24, .94), rgba(3, 6, 24, .5) 72%, rgba(3, 6, 24, .18));
+  }
+  .gaming-hero-content {
+    right: 20px;
+    width: 68%;
+  }
+  .gaming-hero-content h2 {
+    margin-top: 7px;
+    font-size: clamp(19px, 5.5vw, 25px);
+  }
+  .gaming-hero-content p {
+    display: none;
+  }
+  .gaming-hero-cta {
+    margin-top: 10px;
+    padding: 7px 12px;
+  }
+  .gaming-hero-stage .gaming-hero-icon {
+    left: 78%;
+    width: 90px;
+    height: 90px;
+    opacity: .52;
+  }
+  .gaming-hero-index {
+    display: none;
+  }
+  .gaming-hero-slider {
+    margin-bottom: 36px;
+  }
+  .gaming-slide-controls {
+    top: auto;
+    left: 50%;
+    bottom: 10px;
+    min-width: 150px;
+    min-height: 36px;
+    padding: 4px 7px;
+    transform: translateX(-50%);
+  }
+  .gaming-slide-controls > button {
+    width: 28px;
+    height: 28px;
+  }
+  .gaming-category-section {
+    padding: 18px 12px;
+    border-radius: 20px;
+  }
+  .gaming-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .gaming-category-card {
+    min-height: 108px;
+    padding: 12px 8px;
+  }
+  .gaming-catalog-section {
+    margin-top: 30px;
+  }
+}
+
+/* Keep the gaming banner wide and compact below 1000px as well. */
+@media (min-width: 681px) and (max-width: 1000px) {
+  .gaming-hero-slider {
+    width: 100%;
+    margin-bottom: 32px;
+    padding-inline: clamp(8px, 2vw, 18px);
+  }
+
+  .gaming-hero-stage {
+    height: clamp(235px, 32vw, 320px);
+    border-radius: 22px;
+  }
+
+  .gaming-hero-stage > img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .gaming-slide-controls {
+    bottom: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gaming-page *,
+  .gaming-page *::before,
+  .gaming-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Final parity layer: same geometry as the normal storefront category cards. */
+.gaming-category-section .gaming-category-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 0;
+}
+.gaming-category-section .gaming-category-card {
+  display: flex;
+  min-height: 156px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 18px;
+  border-radius: 24px;
+  text-align: right;
+  background:
+    radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--primary-3) 18%, transparent), transparent 42%),
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-solid) 96%, var(--primary) 4%), var(--surface-solid));
+}
+.gaming-category-section .gaming-category-card::after {
+  background: linear-gradient(180deg, transparent 24%, color-mix(in srgb, var(--surface-solid) 94%, transparent) 84%);
+}
+.gaming-category-section .gaming-category-card.has-image::after {
+  background: linear-gradient(180deg, rgba(7, 12, 30, .05) 20%, rgba(7, 12, 30, .9) 100%);
+}
+.gaming-category-section .gaming-category-icon {
+  inset: 14px 14px auto auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+}
+.gaming-category-section .gaming-category-arrow {
+  left: 15px;
+  bottom: 17px;
+  color: var(--primary);
+}
+@media (min-width: 1500px) {
+  .gaming-category-section .gaming-category-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+@media (max-width: 680px) {
+  .gaming-category-section .gaming-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .gaming-category-section .gaming-category-card {
+    min-height: 138px;
+    padding: 18px;
+    border-radius: 20px;
+  }
+}

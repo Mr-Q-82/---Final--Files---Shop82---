@@ -1,0 +1,16 @@
+/* Theme switch big ripple animation */
+.theme-ripple {
+  position: fixed;
+  z-index: 9999;
+  border-radius: 50%;
+  background: var(--bg);
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  animation: rip 0.6s ease forwards;
+}
+
+@keyframes rip {
+  to {
+    transform: translate(-50%, -50%) scale(60);
+  }
+}

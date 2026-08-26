@@ -1,0 +1,37 @@
+/* ========================================================================== 
+   02. Reset & Base Elements
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  transition: 0.3s;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+select option {
+  background: #fff;
+  color: #111827;
+}
+
+html[data-theme=dark] select option {
+  background: #11172d;
+  color: #eef2ff;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  border: 0;
+}

@@ -1,0 +1,3 @@
+/* Modular stylesheet manifest; import order preserves the original cascade. */
+@import url("modules/product-detail-store/part-01.css");
+@import url("modules/product-detail-store/part-02.css");

@@ -1,0 +1,148 @@
+/* ============================================================
+   11) AI ASSISTANT
+   ============================================================ */
+.ai-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 150;
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  background: var(--grad);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-lg);
+  animation: pulse 2.4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(109, 40, 217, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(109, 40, 217, 0);
+  }
+}
+.ai-win {
+  position: fixed;
+  bottom: 98px;
+  left: 24px;
+  z-index: 151;
+  width: min(380px, 92vw);
+  height: 520px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeUp 0.3s;
+}
+
+.ai-head {
+  padding: 16px;
+  background: var(--grad);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-body {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.msg {
+  max-width: 80%;
+  padding: 11px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.msg.bot {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.me {
+  background: var(--grad);
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-left-radius: 4px;
+}
+
+.typing {
+  display: flex;
+  gap: 4px;
+  padding: 12px 14px;
+  align-self: flex-start;
+}
+
+.typing span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  animation: blink 1.2s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 60%, 100% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+.ai-quick {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 0 16px 8px;
+}
+
+.ai-quick button {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  color: var(--primary-2);
+}
+
+.ai-input {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+
+.ai-input input {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  color: var(--text);
+}
+
+.ai-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+}

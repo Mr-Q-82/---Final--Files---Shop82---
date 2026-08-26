@@ -1,0 +1,5 @@
+/* Modular stylesheet manifest; import order preserves the original cascade. */
+@import url("modules/herosection-store/part-01.css");
+@import url("modules/herosection-store/part-02.css");
+@import url("modules/herosection-store/part-03.css");
+@import url("modules/herosection-store/part-04.css");

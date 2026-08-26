@@ -1,0 +1,32 @@
+/* ========================================================================== 
+   01. Design Tokens & Theme Variables
+   ========================================================================== */
+:root {
+  --bg: #f4f6fb;
+  --surface: rgba(255, 255, 255, 0.74);
+  --solid: #fff;
+  --text: #0f172a;
+  --soft: #64748b;
+  --muted: #94a3b8;
+  --border: rgba(15, 23, 42, 0.08);
+  --primary: #6d28d9;
+  --primary2: #8b5cf6;
+  --cyan: #06b6d4;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --grad: linear-gradient(135deg, #6d28d9, #8b5cf6 50%, #06b6d4);
+  --shadow: 0 24px 65px -35px rgba(15, 23, 42, 0.5);
+  --font: IRANYekanX, IRANYekan, Yekan Bakh, Vazirmatn, system-ui, -apple-system, Segoe UI, Tahoma, sans-serif;
+}
+
+html[data-theme=dark] {
+  --bg: #070a16;
+  --surface: rgba(18, 24, 46, 0.7);
+  --solid: #11172d;
+  --text: #eef2ff;
+  --soft: #aab3d1;
+  --muted: #6b7394;
+  --border: rgba(255, 255, 255, 0.09);
+  --shadow: 0 25px 65px -28px rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,49 @@
+/* ========================================================================== 
+   09. Dashboard Metrics
+   ========================================================================== */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.metric {
+  padding: 19px;
+  border-radius: 19px;
+  box-shadow: var(--shadow);
+}
+
+.metric-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--primary);
+  background: rgba(139, 92, 246, 0.1);
+  font-size: 19px;
+}
+
+.trend {
+  padding: 4px 7px;
+  border-radius: 8px;
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+  font-size: 8px;
+}
+
+.metric p {
+  margin: 15px 0 5px;
+  color: var(--soft);
+  font-size: 10px;
+}
+
+.metric strong {
+  font-size: 21px;
+}

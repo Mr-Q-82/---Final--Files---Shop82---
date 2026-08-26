@@ -1,0 +1,60 @@
+/* ============================================================
+   2) 3D INTERACTIVE BACKGROUND
+   ============================================================ */
+#bg3d {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.blob.b1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #8b5cf6, transparent 70%);
+  top: -140px;
+  left: -120px;
+}
+
+.blob.b2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #06b6d4, transparent 70%);
+  bottom: -200px;
+  right: -150px;
+}
+
+.blob.b3 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #ec4899, transparent 70%);
+  top: 40%;
+  left: 55%;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at 50% 30%, #000, transparent 80%);
+}

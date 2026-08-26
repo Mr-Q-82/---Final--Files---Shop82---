@@ -1,0 +1,211 @@
+/* ============================================================
+   FINAL RESPONSIVE HEADER CONTRACT
+   This file is bundled last so older header experiments cannot
+   override the responsive layout.
+   ============================================================ */
+.hdr .premium-header-row { grid-template-columns: max-content minmax(320px, 1fr) max-content max-content !important; }
+.header-buying-guide-link { min-width: 165px; min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 6px 9px; border: 1px solid rgba(103,232,249,.28); border-radius: 13px; color: #fff; background: linear-gradient(135deg,rgba(124,58,237,.28),rgba(8,145,178,.22)); box-shadow: inset 0 1px 0 rgba(255,255,255,.08),0 14px 26px -22px #22d3ee; text-decoration: none; transition: transform .22s ease,border-color .22s ease,background .22s ease; }
+.header-buying-guide-link:hover { transform: translateY(-2px); border-color: rgba(103,232,249,.65); background: linear-gradient(135deg,rgba(124,58,237,.48),rgba(8,145,178,.38)); }
+.header-guide-icon { width: 34px; height: 34px; display: grid; place-items: center; flex: 0 0 34px; border-radius: 10px; color: #fff; background: linear-gradient(135deg,#8b5cf6,#06b6d4); }
+.header-guide-icon .icon { width: 17px; height: 17px; }
+.header-buying-guide-link > span:nth-child(2) { display: grid; line-height: 1.35; }
+.header-buying-guide-link b { font-size: .75rem; }
+.header-buying-guide-link small { color: #bae6fd; font-size: .58rem; }
+.header-buying-guide-link > i { margin-right: auto; color: #67e8f9; font-size: .8rem; font-style: normal; }
+.header-mobile-guide { display: none !important; }
+
+@media (max-width: 1180px) {
+  .hdr {
+    padding-inline: var(--store-page-gutter) !important;
+  }
+
+  .hdr .premium-header-row {
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    display: grid !important;
+    grid-template-columns: minmax(190px, 1fr) max-content 44px !important;
+    grid-template-areas:
+      "actions logo burger"
+      "search search search" !important;
+    align-items: center !important;
+    gap: 10px 12px !important;
+    overflow: visible !important;
+    border-radius: 20px !important;
+  }
+  .header-buying-guide-link { display: none; }
+  .hdr .premium-navbar .nav-list.mobile-open .header-mobile-guide { display: flex !important; }
+
+  .hdr .premium-header-row .burger {
+    grid-area: burger !important;
+    display: grid !important;
+    width: 44px !important;
+    height: 44px !important;
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .hdr .premium-header-row .logo {
+    grid-area: logo !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    justify-self: end !important;
+  }
+
+  .hdr .premium-header-row .search {
+    grid-area: search !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+  }
+
+  .hdr .premium-header-row .hdr-actions {
+    grid-area: actions !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    justify-self: start !important;
+    direction: ltr !important;
+  }
+
+  /* The desktop nav is replaced by an explicit hamburger drawer. */
+  .hdr .premium-navbar {
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .hdr .premium-navbar .nav-list {
+    display: none !important;
+  }
+
+  .hdr .premium-navbar .nav-list.mobile-open {
+    position: absolute !important;
+    top: 10px !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 230 !important;
+    width: 100% !important;
+    max-height: min(70dvh, 590px) !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    overflow-y: auto !important;
+    border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border)) !important;
+    border-radius: 18px !important;
+    color: var(--text) !important;
+    background: var(--surface-solid) !important;
+    box-shadow: 0 24px 60px -24px rgba(15, 23, 42, 0.48) !important;
+  }
+
+  .hdr .premium-navbar .nav-list.mobile-open .nav-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    padding: 9px 11px !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    color: var(--text) !important;
+    background: color-mix(in srgb, var(--surface-solid) 94%, var(--primary) 6%) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+  }
+
+  .hdr .premium-navbar .nav-list.mobile-open .nav-item:hover,
+  .hdr .premium-navbar .nav-list.mobile-open .nav-item.active {
+    color: #fff !important;
+    background: var(--grad) !important;
+    border-color: transparent !important;
+  }
+
+  .hdr .premium-navbar .nav-list.mobile-open .gaming-nav-link {
+    color: #fff !important;
+    background: linear-gradient(135deg, #111b48, #6d28d9 58%, #0891b2) !important;
+    border-color: rgba(124, 58, 237, 0.35) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .hdr .premium-header-row {
+    grid-template-columns: minmax(170px, 1fr) max-content 40px !important;
+    gap: 8px !important;
+    padding: 9px !important;
+    border-radius: 17px !important;
+  }
+
+  .hdr .premium-header-row .burger {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .hdr .premium-header-row .hdr-actions {
+    gap: 2px !important;
+    padding: 3px !important;
+  }
+
+  .hdr .premium-header-row .hdr-actions .iconbtn {
+    width: 34px !important;
+    height: 34px !important;
+    display: grid !important;
+  }
+
+  .hdr .premium-header-row .search input {
+    min-height: 44px !important;
+  }
+
+  .hdr .premium-navbar .nav-list.mobile-open {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .hdr .premium-header-row {
+    grid-template-columns: minmax(166px, 1fr) 42px 38px !important;
+  }
+
+  .hdr .premium-header-row .premium-logo-copy {
+    display: none !important;
+  }
+
+  .hdr .premium-header-row .logo-badge {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .hdr .premium-header-row .hdr-actions .iconbtn {
+    width: 31px !important;
+    height: 31px !important;
+    border-radius: 9px !important;
+  }
+
+  .hdr .premium-header-row .hdr-actions .icon {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .hdr .premium-navbar .nav-list.mobile-open {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Brand movement must remain continuous while users inspect a logo. */
+.brands-marquee:hover .brands-marquee-track,
+.brands-marquee:focus-within .brands-marquee-track,
+.brand-slide:hover ~ .brands-marquee-track {
+  animation-play-state: running !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-marquee-track {
+    animation-duration: calc(var(--brand-duration, 42s) * 1.75) !important;
+  }
+}

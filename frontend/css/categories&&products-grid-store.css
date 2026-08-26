@@ -1,0 +1,4 @@
+/* Modular stylesheet manifest; import order preserves the original cascade. */
+@import url("modules/categories-and-products-grid-store/part-01.css");
+@import url("modules/categories-and-products-grid-store/part-02.css");
+.category-seo-content{margin:18px 0;padding:24px;line-height:2}.category-seo-content h1,.category-seo-content h2{margin:0 0 10px}.category-seo-content details{border-top:1px solid var(--border);padding:10px 0}.category-seo-content summary{cursor:pointer;font-weight:700}

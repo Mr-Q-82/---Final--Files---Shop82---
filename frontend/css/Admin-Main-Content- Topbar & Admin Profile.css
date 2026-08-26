@@ -1,0 +1,74 @@
+/* ========================================================================== 
+   08. Main Content, Topbar & Admin Profile
+   ========================================================================== */
+.main {
+  min-width: 0;
+  padding: 0 28px 45px;
+}
+
+.topbar {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.topbar p {
+  margin: 4px 0 0;
+  color: var(--soft);
+  font-size: 10px;
+}
+
+.top-actions {
+  margin-right: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.iconbtn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 6px 13px;
+  border-radius: 13px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--grad);
+  font-weight: 800;
+}
+
+.profile b,
+.profile small {
+  display: block;
+}
+
+.profile b {
+  font-size: 10px;
+}
+
+.profile small {
+  color: var(--soft);
+  font-size: 8px;
+}

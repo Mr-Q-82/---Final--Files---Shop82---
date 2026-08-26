@@ -1,0 +1,214 @@
+/* ============================================================
+   9) AUTH
+   ============================================================ */
+.auth-wrap {
+  max-width: 460px;
+  margin: 40px auto;
+  padding: 34px;
+}
+
+.auth-tabs {
+  display: flex;
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 5px;
+  margin-bottom: 24px;
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 11px;
+  border-radius: 10px;
+  font-weight: 800;
+  transition: 0.25s;
+  font-size: 14px;
+}
+
+.auth-tabs button.on {
+  background: var(--grad);
+  color: #fff;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.field input,
+.field select,
+.field textarea,
+.site-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  color: var(--text);
+  font-size: 14px;
+  transition: 0.2s;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.site-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.14);
+}
+
+.password-input-shell {
+  position: relative;
+}
+
+.field .password-input-shell > input {
+  padding-right: 50px;
+  padding-left: 14px;
+}
+
+.password-visibility-toggle {
+  position: absolute;
+  right: 8px;
+  left: auto;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  transform: translateY(-50%);
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.password-visibility-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.password-visibility-toggle:hover,
+.password-visibility-toggle[aria-pressed="true"] {
+  color: var(--primary);
+  border-color: color-mix(in srgb, var(--primary) 18%, transparent);
+  background: color-mix(in srgb, var(--primary) 9%, transparent);
+}
+
+.password-visibility-toggle:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--primary) 48%, transparent);
+  outline-offset: 1px;
+}
+
+.password-visibility-toggle:active {
+  transform: translateY(-50%) scale(.92);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.filter-number {
+  direction: ltr;
+  text-align: center;
+  min-width: 0;
+}
+
+.otp-timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.otp-timer strong {
+  direction: ltr;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.otp-timer button {
+  padding: 5px 9px;
+  border-radius: 8px;
+  color: var(--primary);
+  background: rgba(109, 40, 217, 0.09);
+  font-weight: 700;
+}
+
+.otp-timer button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.field.err input {
+  border-color: var(--danger);
+  animation: shake 0.35s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+.err-msg {
+  color: var(--danger);
+  font-size: 12px;
+  margin-top: 6px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  animation: fadeUp 0.25s;
+}
+
+.ok-msg {
+  color: var(--success);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.otp-boxes {
+  display: flex;
+  gap: 10px;
+  direction: ltr;
+  justify-content: center;
+  margin: 18px 0;
+}
+
+.otp-boxes input {
+  width: 52px;
+  height: 60px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  color: var(--text);
+}
+
+.otp-boxes input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.14);
+}

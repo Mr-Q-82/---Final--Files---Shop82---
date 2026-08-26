@@ -1,0 +1,23 @@
+/* Declarative field rules shared by storefront and admin forms. */
+const FIELD_RULES = Object.freeze({
+  first_name: { pattern: "name", message: "نام باید ۲ تا ۸۰ حرف و بدون عدد باشد." },
+  last_name: { pattern: "name", message: "نام خانوادگی معتبر وارد کنید." },
+  recipient_name: { pattern: "name", message: "نام تحویل‌گیرنده معتبر نیست." },
+  phone: { normalize: normalizeIranPhone, pattern: "phone", message: "شماره موبایل را به‌شکل 09123456789 وارد کنید." },
+  recipient_phone: { normalize: normalizeIranPhone, pattern: "phone", message: "شماره موبایل تحویل‌گیرنده معتبر نیست." },
+  email: { pattern: "email", optional: true, message: "ساختار ایمیل معتبر نیست؛ مانند name@example.com." },
+  password: { pattern: "password", message: "رمز باید حداقل ۸ کاراکتر و شامل حرف بزرگ، حرف کوچک، عدد و نماد باشد." },
+  password_confirm: { pattern: "password", message: "تکرار رمز عبور معتبر نیست." },
+  login_password: { min: 1, max: 128, message: "رمز عبور را وارد کنید." },
+  new_password: { pattern: "password", message: "رمز جدید باید شامل حرف بزرگ، حرف کوچک، عدد و نماد باشد." },
+  new_password_confirm: { pattern: "password", message: "تکرار رمز عبور جدید معتبر نیست." },
+  current_password: { min: 1, max: 128, optional: true, message: "رمز فعلی معتبر نیست." },
+  code: { normalize: toLatinDigits, pattern: "otp", message: "کد تأیید باید دقیقاً ۶ رقم باشد." },
+  national_id: { normalize: toLatinDigits, custom: isValidNationalId, optional: true, message: "کد ملی واردشده معتبر نیست." },
+  postal_code: { normalize: toLatinDigits, pattern: "postalCode", message: "کد پستی باید ۱۰ رقم معتبر باشد و با صفر شروع نشود." },
+  referral_code: { pattern: "referral", optional: true, transform: (value) => value.toUpperCase(), message: "کد دعوت باید ۸ تا ۱۶ حرف یا عدد انگلیسی باشد." },
+  address: { min: 10, max: 500, pattern: "safeText", message: "آدرس کامل باید بین ۱۰ تا ۵۰۰ نویسه و بدون کد HTML باشد." },
+  subject: { min: 3, max: 140, pattern: "safeText", message: "موضوع باید بین ۳ تا ۱۴۰ نویسه باشد." },
+  message: { min: 3, max: 2000, pattern: "safeText", message: "متن پیام باید بین ۳ تا ۲۰۰۰ نویسه باشد." },
+  title: { min: 2, max: 140, message: "عنوان باید بین ۲ تا ۱۴۰ نویسه باشد." },
+});

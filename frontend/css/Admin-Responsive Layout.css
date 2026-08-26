@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* ========================================================================== 
+   17. Responsive Layout — Tablet
+   ========================================================================== */
+@media (max-width: 1000px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid,
+  .dash-grid,
+  .dash-bottom {
+    grid-template-columns: 1fr;
+  }
+  .wide-card {
+    grid-column: auto;
+  }
+  .app {
+    grid-template-columns: 78px 1fr;
+  }
+  .sidebar .brand > span:not(.mark),
+  .admin-tag,
+  .nav button > i {
+    display: none;
+  }
+  .sidebar .brand {
+    justify-content: center;
+  }
+  .nav button {
+    justify-content: center;
+  }
+  .sidebar-bottom {
+    right: 9px;
+    left: 9px;
+  }
+  .logout {
+    font-size: 0;
+  }
+  .logout:after {
+    content: "↪";
+    font-size: 17px;
+  }
+}
+/* ========================================================================== 
+   18. Responsive Layout — Mobile
+   ========================================================================== */
+@media (max-width: 650px) {
+  .app {
+    display: block;
+  }
+  .sidebar {
+    position: fixed;
+    z-index: 10;
+    right: -260px;
+    width: 250px;
+    transition: 0.25s;
+  }
+  .sidebar.open {
+    right: 0;
+  }
+  .sidebar .brand > span:not(.mark),
+  .admin-tag,
+  .nav button > i {
+    display: block;
+  }
+  .nav button {
+    justify-content: flex-start;
+  }
+  .sidebar-bottom {
+    right: 16px;
+    left: 16px;
+  }
+  .logout {
+    font-size: 11px;
+  }
+  .logout:after {
+    display: none;
+  }
+  .main {
+    padding: 0 14px 35px;
+  }
+  .mobile-toggle {
+    display: grid;
+  }
+  .topbar h1 {
+    font-size: 16px;
+  }
+  .topbar p,
+  .profile > div {
+    display: none;
+  }
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .full {
+    grid-column: auto;
+  }
+}

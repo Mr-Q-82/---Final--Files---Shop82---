@@ -1,0 +1,104 @@
+/* ========================================================================== 
+   10. Cards, Charts & Status Summaries
+   ========================================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card-head button {
+  padding: 7px 10px;
+  border-radius: 9px;
+  color: var(--primary);
+  background: rgba(139, 92, 246, 0.1);
+  font-size: 9px;
+}
+
+.chart {
+  height: 245px;
+  display: flex;
+  align-items: end;
+  gap: 9px;
+  padding-top: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bar-wrap {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 7px;
+}
+
+.bar {
+  width: 70%;
+  min-width: 9px;
+  border-radius: 8px 8px 2px 2px;
+  background: var(--grad);
+  opacity: 0.85;
+}
+
+.bar-wrap span {
+  color: var(--muted);
+  font-size: 7px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.status-row:last-child {
+  border: 0;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.status-row p {
+  flex: 1;
+  margin: 0;
+}
+
+.status-row b {
+  display: block;
+  font-size: 10px;
+}
+
+.status-row small {
+  color: var(--soft);
+  font-size: 8px;
+}
+
+.status-row strong {
+  font-size: 11px;
+}

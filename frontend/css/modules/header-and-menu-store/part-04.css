@@ -1,0 +1,421 @@
+
+/* ============================================================
+   NAVIGATION V6 — RICH TECH DETAILS + ACCESSIBLE STATES
+   ============================================================ */
+.hdr .premium-header-row {
+  position: relative;
+  border-color: color-mix(in srgb, #7c3aed 16%, var(--nav-line));
+  background:
+    radial-gradient(circle at 92% -80%, rgba(124, 58, 237, .12), transparent 34%),
+    radial-gradient(circle at 8% 180%, rgba(6, 182, 212, .10), transparent 32%),
+    var(--nav-panel) !important;
+  box-shadow:
+    0 18px 48px -34px rgba(76, 29, 149, .45),
+    0 7px 18px -16px rgba(14, 116, 144, .30) !important;
+}
+
+.hdr .premium-header-row::before {
+  position: absolute;
+  top: -1px;
+  right: 34px;
+  left: 34px;
+  display: block;
+  height: 2px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, transparent, #7c3aed 26%, #06b6d4 74%, transparent);
+  content: "";
+}
+
+.hdr .premium-logo .logo-badge {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow:
+    0 12px 25px -14px rgba(76, 29, 149, .95),
+    inset 0 1px 0 rgba(255,255,255,.24);
+}
+
+.hdr .premium-logo .logo-badge::after {
+  position: absolute;
+  inset: -45% auto -45% -35%;
+  width: 35%;
+  background: rgba(255,255,255,.32);
+  content: "";
+  transform: rotate(20deg);
+  transition: transform .5s ease;
+}
+
+.hdr .premium-logo:hover .logo-badge::after {
+  transform: translateX(230%) rotate(20deg);
+}
+
+.hdr .search input {
+  background:
+    linear-gradient(var(--nav-soft), var(--nav-soft)) padding-box,
+    linear-gradient(110deg, rgba(124,58,237,.62), rgba(6,182,212,.55)) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 8px 22px -20px rgba(76, 29, 149, .55);
+}
+
+.hdr .search input:focus {
+  background:
+    linear-gradient(var(--nav-panel), var(--nav-panel)) padding-box,
+    linear-gradient(110deg, #7c3aed, #06b6d4) border-box;
+}
+
+.hdr .hdr-actions {
+  border-color: color-mix(in srgb, #7c3aed 14%, var(--nav-line));
+  background: color-mix(in srgb, var(--nav-soft) 94%, #ede9fe 6%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.hdr .premium-header-row .iconbtn:hover {
+  transform: translateY(-1px);
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #0891b2);
+  box-shadow: 0 10px 20px -13px rgba(109, 40, 217, .75);
+}
+
+.hdr .premium-navbar {
+  border-color: color-mix(in srgb, #7c3aed 13%, var(--nav-line));
+  background:
+    linear-gradient(90deg, rgba(124,58,237,.035), transparent 25%, transparent 75%, rgba(6,182,212,.035)),
+    var(--nav-panel) !important;
+}
+
+.hdr .premium-navbar .nav-item {
+  transition:
+    color .2s ease,
+    background .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.hdr .premium-navbar .nav-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 9px 20px -17px rgba(15, 23, 42, .65);
+}
+
+/* All-categories remains readable on hover, focus and while open. */
+.hdr .premium-navbar .nav-all-categories,
+.hdr .premium-navbar .nav-all-categories:hover,
+.hdr .premium-navbar .nav-all-categories:focus-visible,
+.hdr .premium-navbar .nav-all-categories.active,
+.hdr .premium-navbar.mega-active .nav-all-categories {
+  color: #ffffff !important;
+  background: linear-gradient(125deg, #111827 0%, #4c1d95 52%, #0e7490 125%) !important;
+  box-shadow: 0 12px 26px -16px rgba(76, 29, 149, .82) !important;
+}
+
+.hdr .premium-navbar .nav-all-categories:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.15) brightness(1.06);
+}
+
+.hdr .premium-navbar .nav-all-categories span,
+.hdr .premium-navbar .nav-all-categories:hover span,
+.hdr .premium-navbar .nav-all-categories .nav-item-label {
+  color: #ffffff !important;
+}
+
+.hdr .premium-navbar .nav-all-categories .nav-item-icon,
+.hdr .premium-navbar .nav-all-categories:hover .nav-item-icon {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.25) !important;
+  background: rgba(255,255,255,.13) !important;
+}
+
+/* Gaming is intentionally visually separate from the regular catalog. */
+.hdr .premium-navbar .gaming-nav-link,
+.hdr .premium-navbar .gaming-nav-link:hover,
+.hdr .premium-navbar .gaming-nav-link.active,
+.hdr .premium-navbar .gaming-store-nav-link,
+.hdr .premium-navbar .gaming-store-nav-link:hover,
+.hdr .premium-navbar .gaming-store-nav-link.active {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(34, 211, 238, .42) !important;
+  color: #ffffff !important;
+  background: linear-gradient(120deg, #071226 0%, #312e81 48%, #0e7490 108%) !important;
+  box-shadow:
+    0 12px 26px -16px rgba(49, 46, 129, .95),
+    inset 0 1px 0 rgba(255,255,255,.14) !important;
+}
+
+.hdr .premium-navbar .gaming-nav-link::after,
+.hdr .premium-navbar .gaming-store-nav-link::after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: linear-gradient(105deg, transparent 25%, rgba(255,255,255,.22) 46%, transparent 67%);
+  content: "";
+  pointer-events: none;
+  transform: translateX(135%);
+  transition: transform .65s ease;
+}
+
+.hdr .premium-navbar .gaming-nav-link:hover::after,
+.hdr .premium-navbar .gaming-store-nav-link:hover::after {
+  transform: translateX(-135%);
+}
+
+.hdr .premium-navbar .gaming-nav-link span,
+.hdr .premium-navbar .gaming-store-nav-link span,
+.hdr .premium-navbar .gaming-nav-link:hover span,
+.hdr .premium-navbar .gaming-store-nav-link:hover span {
+  position: relative;
+  z-index: 1;
+  color: #ffffff !important;
+}
+
+.hdr .premium-navbar .gaming-nav-link .nav-item-icon,
+.hdr .premium-navbar .gaming-store-nav-link .nav-item-icon,
+.hdr .premium-navbar .gaming-nav-link:hover .nav-item-icon,
+.hdr .premium-navbar .gaming-store-nav-link:hover .nav-item-icon {
+  color: #67e8f9 !important;
+  border-color: rgba(103,232,249,.32) !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+.hdr .premium-navbar .gaming-nav-link::before,
+.hdr .premium-navbar .gaming-store-nav-link::before {
+  right: 18px;
+  bottom: 3px;
+  left: 18px;
+  z-index: 2;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #67e8f9, transparent);
+  opacity: .88;
+  transform: scaleX(1);
+}
+
+[data-theme="dark"] .hdr .premium-navbar .gaming-nav-link,
+body.dark .hdr .premium-navbar .gaming-nav-link {
+  border-color: rgba(34, 211, 238, .48) !important;
+  background: linear-gradient(120deg, #020617, #312e81 52%, #155e75) !important;
+}
+
+/* More crafted mega-menu details without reducing clarity. */
+.mega.glass {
+  border-top: 3px solid transparent;
+  background:
+    linear-gradient(var(--nav-panel), var(--nav-panel)) padding-box,
+    linear-gradient(90deg, #7c3aed, #06b6d4) border-box !important;
+}
+
+.mega .mega-sidebar-label::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background: #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124,58,237,.10);
+  content: "";
+}
+
+.mega .mega-group {
+  box-shadow: 0 8px 24px -24px rgba(15, 23, 42, .7);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.mega .mega-group:hover {
+  border-color: #cfc4f7;
+  box-shadow: 0 14px 30px -25px rgba(109, 40, 217, .45);
+}
+
+/* ============================================================
+   NAVIGATION V7 — AURORA COMMAND HEADER
+   A stronger, more distinctive visual direction for Shop 82.
+   ============================================================ */
+.hdr {
+  padding-top: 10px;
+  background: linear-gradient(180deg, rgba(244, 246, 255, .98), rgba(244, 246, 255, .76) 84%, transparent);
+}
+
+.hdr .premium-header-row {
+  min-height: 82px;
+  padding: 13px 16px;
+  overflow: visible;
+  border: 1px solid rgba(124, 58, 237, .24);
+  border-radius: 22px 22px 10px 10px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(124,58,237,.55), transparent 34%),
+    radial-gradient(circle at 7% 145%, rgba(6,182,212,.34), transparent 32%),
+    linear-gradient(112deg, #071225 0%, #111b38 48%, #15133d 72%, #062f3e 130%) !important;
+  box-shadow:
+    0 24px 55px -35px rgba(15, 23, 42, .9),
+    0 12px 30px -24px rgba(76, 29, 149, .9) !important;
+}
+
+.hdr .premium-header-row::before {
+  top: auto;
+  right: 7%;
+  bottom: -1px;
+  left: 7%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b5cf6 25%, #22d3ee 75%, transparent);
+  box-shadow: 0 0 16px rgba(34,211,238,.45);
+}
+
+.hdr .premium-header-row::after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, #000, transparent 38%, transparent 62%, #000);
+  mask-image: linear-gradient(90deg, #000, transparent 38%, transparent 62%, #000);
+}
+
+.hdr .premium-header-row > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hdr .premium-logo {
+  border-left-color: rgba(255,255,255,.15);
+}
+
+.hdr .premium-logo-copy b { color: #ffffff; }
+.hdr .premium-logo-copy small { color: #67e8f9; }
+
+.hdr .premium-logo .logo-badge {
+  border-color: rgba(255,255,255,.30);
+  background: linear-gradient(145deg, #8b5cf6, #6d28d9 52%, #0891b2);
+  box-shadow:
+    0 0 0 5px rgba(255,255,255,.055),
+    0 15px 30px -14px rgba(6,182,212,.7);
+}
+
+.hdr .search input {
+  min-height: 52px;
+  border-color: rgba(255,255,255,.22);
+  color: #111827;
+  background: rgba(255,255,255,.97);
+  box-shadow:
+    0 14px 32px -23px rgba(0,0,0,.9),
+    inset 0 1px 0 #fff;
+}
+
+.hdr .search input::placeholder { color: #7b8495; }
+
+.hdr .search input:hover {
+  border-color: rgba(103,232,249,.65);
+  box-shadow: 0 0 0 3px rgba(34,211,238,.07);
+}
+
+.hdr .search input:focus {
+  border-color: #67e8f9;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(34,211,238,.15),
+    0 15px 32px -23px rgba(0,0,0,.85);
+}
+
+.hdr .search .s-icon { color: #6d28d9; }
+
+.hdr .search-shortcut {
+  color: #6b7280;
+  border-color: #e2e4eb;
+  background: #f6f7fb;
+}
+
+.hdr .hdr-actions {
+  gap: 5px;
+  padding: 5px;
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.075);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.11),
+    0 12px 30px -22px rgba(0,0,0,.9);
+  backdrop-filter: blur(12px);
+}
+
+.hdr .premium-header-row .iconbtn {
+  width: 42px;
+  height: 42px;
+  color: #e8edf8;
+  border: 1px solid rgba(255,255,255,.09);
+  background: rgba(255,255,255,.055);
+}
+
+.hdr .premium-header-row .iconbtn:hover,
+.hdr .premium-header-row .iconbtn:focus-visible {
+  transform: translateY(-2px);
+  color: #ffffff;
+  border-color: rgba(103,232,249,.42);
+  background: linear-gradient(135deg, rgba(124,58,237,.92), rgba(8,145,178,.92));
+  box-shadow:
+    0 12px 25px -13px rgba(6,182,212,.8),
+    inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+.hdr .header-action-theme:hover { color: #fde68a; }
+.hdr .header-action-favorite:hover { color: #fecdd3; }
+.hdr .header-action-notification:hover { color: #fef3c7; }
+.hdr .header-action-cart:hover { color: #cffafe; }
+.hdr .header-action-profile:hover { color: #ddd6fe; }
+
+/* Dark, high-contrast tooltips positioned below the action dock. */
+.hdr .header-action[data-tooltip]:hover::after,
+.hdr .header-action[data-tooltip]:focus-visible::after {
+  top: calc(100% + 12px);
+  bottom: auto;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 9px;
+  color: #ffffff;
+  background: #111827;
+  box-shadow: 0 16px 35px rgba(2, 6, 23, .32);
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.hdr .header-action[data-tooltip]:hover::before,
+.hdr .header-action[data-tooltip]:focus-visible::before {
+  top: calc(100% + 6px);
+  bottom: auto;
+  border-color: #111827;
+  background: #111827;
+}
+
+.hdr .premium-navbar {
+  margin-top: 7px;
+  border-color: rgba(124,58,237,.19);
+  border-radius: 10px 10px 18px 18px;
+  background:
+    radial-gradient(circle at 90% -150%, rgba(124,58,237,.11), transparent 28%),
+    radial-gradient(circle at 8% 220%, rgba(6,182,212,.09), transparent 30%),
+    var(--nav-panel) !important;
+  box-shadow:
+    0 18px 42px -33px rgba(15,23,42,.72),
+    inset 0 1px 0 rgba(255,255,255,.8) !important;
+}
+
+.hdr .premium-navbar .nav-list {
+  min-height: 55px;
+  padding: 7px 8px;
+}
+
+.hdr .premium-navbar .nav-item {
+  min-height: 41px;
+  border: 1px solid transparent;
+}
+
+.hdr .premium-navbar .nav-item:hover,
+.hdr .premium-navbar .nav-item.active {
+  border-color: color-mix(in srgb, #7c3aed 13%, var(--nav-line));
+  background: linear-gradient(135deg, rgba(124,58,237,.075), rgba(6,182,212,.055));
+}
+
+.hdr .premium-navbar .nav-item-icon {
+  transition: transform .22s cubic-bezier(.22,1,.36,1), color .2s ease, background .2s ease;
+}

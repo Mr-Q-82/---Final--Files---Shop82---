@@ -1,0 +1,432 @@
+.mega-product-info b { color: var(--text); font-size: 10.5px; }
+.mega-product-info small { margin-top: 4px; color: var(--muted); font-size: 8px; }
+.mega-product-price {
+  color: var(--primary-2);
+  font-size: 10px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+.mega-product-price small { color: var(--muted); font-size: 7px; }
+.mega-empty-product { grid-column: 1 / -1; text-align: center; }
+
+.mega-promo {
+  min-height: 100%;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 18px;
+  box-shadow: 0 20px 42px -30px rgba(109,40,217,.85);
+}
+.mega-promo-label {
+  display: inline-flex;
+  padding: 5px 9px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  font-size: 9px;
+  font-weight: 800;
+}
+.mega-promo h3 { margin: 12px 0 7px; font-size: 19px; line-height: 1.7; }
+.mega-promo p { opacity: .9; font-size: 11px; line-height: 1.9; }
+.mega-promo-actions { display: grid; gap: 7px; margin-top: 14px; }
+.mega-promo-primary { color: var(--primary); background: #fff; }
+.mega-promo-gaming {
+  min-height: 38px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 10px;
+  color: #fff;
+  background: rgba(8,15,30,.18);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+@media (max-width: 1120px) and (min-width: 769px) {
+  .mega {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+  .mega-promo {
+    grid-column: 1 / -1;
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    align-items: center;
+    gap: 18px;
+  }
+}
+
+/* ============================================================
+   FINAL HEADER ACTION VISIBILITY OVERRIDE
+   Kept at the end of this file so legacy header themes cannot
+   wash out the action icons on the dark Aurora header.
+   ============================================================ */
+.hdr .premium-header-row .hdr-actions {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.hdr .premium-header-row .hdr-actions .iconbtn {
+  color: #f8fafc !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  opacity: 1 !important;
+}
+
+.hdr .premium-header-row .hdr-actions .iconbtn .icon,
+.hdr .premium-header-row .hdr-actions .iconbtn svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+  opacity: 1 !important;
+}
+
+.hdr .premium-header-row .hdr-actions .iconbtn:hover,
+.hdr .premium-header-row .hdr-actions .iconbtn:focus-visible {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 8px 22px rgba(6, 182, 212, 0.28) !important;
+}
+
+.hdr .premium-header-row .hdr-actions [data-tooltip]::after {
+  color: #ffffff !important;
+  background: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  opacity: 0;
+}
+
+.hdr .premium-header-row .hdr-actions [data-tooltip]:hover::after,
+.hdr .premium-header-row .hdr-actions [data-tooltip]:focus-visible::after {
+  opacity: 1;
+}
+
+/* ============================================================
+   STOREFRONT NAVIGATION V5 — MODERN EDITORIAL COMMERCE
+   Deliberately replaces the older pill-heavy header with a calm,
+   premium navigation system and a focused category workspace.
+   ============================================================ */
+.hdr {
+  --nav-ink: #111827;
+  --nav-muted: #667085;
+  --nav-line: #e7e9f1;
+  --nav-panel: #ffffff;
+  --nav-soft: #f6f7fb;
+  padding: 8px clamp(8px, 1.2vw, 22px) 0;
+  background: linear-gradient(180deg, rgba(248, 250, 255, .96), rgba(248, 250, 255, .80) 78%, transparent);
+}
+
+[data-theme="dark"] .hdr,
+body.dark .hdr {
+  --nav-ink: #f8fafc;
+  --nav-muted: #9aa5b8;
+  --nav-line: #2b3347;
+  --nav-panel: #111827;
+  --nav-soft: #192133;
+  background: linear-gradient(180deg, rgba(8, 13, 25, .98), rgba(8, 13, 25, .84) 78%, transparent);
+}
+
+.hdr .premium-header-row {
+  width: 100%;
+  min-height: 72px;
+  grid-template-columns: max-content minmax(320px, 1fr) max-content;
+  gap: clamp(14px, 1.5vw, 26px);
+  margin: 0;
+  padding: 10px 12px 10px 16px;
+  overflow: visible;
+  border: 1px solid var(--nav-line);
+  border-radius: 18px 18px 8px 8px;
+  color: var(--nav-ink);
+  background: var(--nav-panel) !important;
+  box-shadow: 0 14px 38px -30px rgba(15, 23, 42, .55) !important;
+  backdrop-filter: none !important;
+}
+
+.hdr .premium-header-row::before,
+.hdr .premium-header-row::after {
+  display: none;
+}
+
+.hdr .premium-logo {
+  min-width: 194px;
+  gap: 11px;
+  padding: 5px 5px 5px 18px;
+  border-left: 1px solid var(--nav-line);
+}
+
+.hdr .premium-logo .logo-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #111827 0%, #4c1d95 58%, #0891b2 120%);
+  box-shadow: 0 10px 25px -15px rgba(76, 29, 149, .9);
+}
+
+.hdr .premium-logo-copy {
+  gap: 1px;
+  align-items: flex-start;
+}
+
+.hdr .premium-logo-copy b {
+  color: var(--nav-ink);
+  font-size: 18px;
+  letter-spacing: -.35px;
+}
+
+.hdr .premium-logo-copy small {
+  color: #7c3aed;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.hdr .search input {
+  min-height: 48px;
+  padding: 12px 44px 12px 48px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--nav-ink);
+  background: var(--nav-soft);
+  box-shadow: inset 0 0 0 1px var(--nav-line);
+}
+
+.hdr .search input:hover {
+  box-shadow: inset 0 0 0 1px #cfc6f5;
+}
+
+.hdr .search input:focus {
+  border-color: #8b5cf6;
+  background: var(--nav-panel);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, .10);
+}
+
+.hdr .search .s-icon {
+  right: 15px;
+  color: #7c3aed;
+}
+
+.hdr .search-shortcut {
+  left: 13px;
+  min-width: 25px;
+  height: 25px;
+  border: 1px solid var(--nav-line);
+  border-radius: 7px;
+  color: var(--nav-muted);
+  background: var(--nav-panel);
+  box-shadow: 0 2px 5px rgba(15, 23, 42, .04);
+}
+
+.hdr .hdr-actions {
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid var(--nav-line);
+  border-radius: 13px;
+  background: var(--nav-soft);
+}
+
+.hdr .premium-header-row .iconbtn {
+  width: 39px;
+  height: 39px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--nav-ink);
+  background: transparent;
+}
+
+.hdr .premium-header-row .iconbtn + .iconbtn::before { display: none; }
+
+.hdr .premium-header-row .iconbtn:hover {
+  color: #6d28d9;
+  background: var(--nav-panel);
+  box-shadow: 0 8px 20px -16px rgba(15, 23, 42, .7);
+}
+
+.hdr .premium-navbar {
+  width: 100%;
+  min-height: 52px;
+  margin: 6px 0 0;
+  overflow: visible;
+  border: 1px solid var(--nav-line);
+  border-radius: 8px 8px 16px 16px;
+  background: var(--nav-panel) !important;
+  box-shadow: 0 16px 36px -31px rgba(15, 23, 42, .6) !important;
+  backdrop-filter: none !important;
+}
+
+.hdr .premium-navbar .nav-list {
+  min-height: 50px;
+  gap: 2px;
+  justify-content: flex-start;
+  padding: 5px 7px;
+}
+
+.hdr .premium-navbar .nav-item {
+  min-height: 39px;
+  gap: 6px;
+  padding: 7px clamp(8px, .8vw, 14px);
+  border: 0;
+  border-radius: 9px;
+  color: var(--nav-muted);
+  background: transparent;
+  box-shadow: none;
+  font-size: clamp(10px, .72vw, 12px);
+  font-weight: 750;
+}
+
+.hdr .premium-navbar .nav-item::before {
+  right: 12px;
+  bottom: 2px;
+  left: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+}
+
+.hdr .premium-navbar .nav-item-icon {
+  width: 25px;
+  height: 25px;
+  flex-basis: 25px;
+  border: 1px solid var(--nav-line);
+  border-radius: 8px;
+  color: #667085;
+  background: var(--nav-soft);
+}
+
+.hdr .premium-navbar .nav-item-icon .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.hdr .premium-navbar .nav-item:hover,
+.hdr .premium-navbar .nav-item.active {
+  color: var(--nav-ink);
+  background: var(--nav-soft);
+}
+
+.hdr .premium-navbar .nav-item:hover .nav-item-icon,
+.hdr .premium-navbar .nav-item.active .nav-item-icon {
+  color: #6d28d9;
+  border-color: #d9d0f8;
+  background: #f0ebff;
+}
+
+.hdr .premium-navbar .nav-all-categories {
+  min-width: 164px;
+  margin-left: 5px;
+  color: #fff !important;
+  background: linear-gradient(125deg, #111827 0%, #3b1b78 58%, #0e7490 130%);
+  box-shadow: 0 11px 24px -18px rgba(17, 24, 39, .9);
+}
+
+.hdr .premium-navbar .nav-all-categories .nav-item-icon {
+  color: #fff;
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.10);
+}
+
+.hdr .premium-navbar .gaming-nav-link {
+  margin-inline: 4px;
+  border: 1px solid #d9ccff !important;
+  color: #5b21b6 !important;
+  background: linear-gradient(110deg, #f1edff, #ecfeff) !important;
+  box-shadow: none;
+}
+
+.hdr .premium-navbar .gaming-nav-link::after { display: none; }
+.hdr .premium-navbar .gaming-nav-link .nav-item-icon {
+  color: #6d28d9;
+  border-color: #d9ccff;
+  background: #fff;
+}
+
+/* Mega menu: dark promotional wall removed; content is now one calm workspace. */
+.mega.glass {
+  grid-template-columns: 236px minmax(560px, 1fr) 238px;
+  gap: 12px;
+  padding: 12px;
+  border-color: var(--nav-line);
+  border-radius: 16px;
+  background: var(--nav-panel) !important;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, .26) !important;
+}
+
+.mega .mega-sidebar,
+.mega .mega-group {
+  border-color: var(--nav-line);
+  background: var(--nav-soft) !important;
+}
+
+.mega .mega-cat.active {
+  border-color: #c4b5fd;
+  color: #5b21b6;
+  background: #ede9fe !important;
+  box-shadow: inset -3px 0 0 #7c3aed;
+}
+
+.mega .mega-content { background: var(--nav-panel) !important; }
+
+.mega .mega-content-head {
+  min-height: 74px;
+  border: 1px solid var(--nav-line);
+  border-radius: 12px;
+  background: var(--nav-soft) !important;
+}
+
+.mega .mega-products-group { background: var(--nav-panel) !important; }
+
+.mega .mega-promo {
+  position: relative;
+  padding: 18px;
+  border: 1px solid #26334d;
+  border-radius: 13px;
+  background: linear-gradient(165deg, #111827 0%, #172554 58%, #164e63 135%) !important;
+}
+
+.mega .mega-promo::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 20% 85%, rgba(34,211,238,.22), transparent 38%);
+  content: "";
+  pointer-events: none;
+}
+
+.mega .mega-promo > * { position: relative; z-index: 1; }
+
+@media (max-width: 1180px) and (min-width: 769px) {
+  .hdr .premium-header-row {
+    grid-template-columns: max-content minmax(240px, 1fr) max-content;
+    gap: 10px;
+  }
+  .hdr .premium-logo { min-width: 160px; }
+  .hdr .premium-navbar .nav-list { overflow-x: auto; }
+  .mega.glass { grid-template-columns: 218px minmax(0, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .hdr { padding-inline: 6px; }
+  .hdr .premium-header-row {
+    grid-template-columns: max-content minmax(190px, 1fr) max-content;
+    border-radius: 15px;
+  }
+  .hdr .premium-logo {
+    min-width: auto;
+    padding-left: 10px;
+  }
+  .hdr .premium-logo-copy small { display: none; }
+  .hdr .premium-navbar { border-radius: 12px; }
+}
+
+@media (max-width: 640px) {
+  .hdr .premium-header-row {
+    min-height: 60px;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    gap: 7px;
+    padding: 7px;
+  }
+  .hdr .premium-logo { border: 0; }
+  .hdr .premium-navbar {
+    margin-top: 5px;
+    background: var(--nav-panel) !important;
+  }
+  .hdr .premium-navbar .nav-list.mobile-open {
+    background: var(--nav-panel) !important;
+  }
+}

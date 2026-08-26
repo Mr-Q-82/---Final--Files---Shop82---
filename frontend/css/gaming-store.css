@@ -1,0 +1,3 @@
+/* Modular stylesheet manifest; import order preserves the original cascade. */
+@import url("modules/gaming-store/part-01.css");
+@import url("modules/gaming-store/part-02.css");

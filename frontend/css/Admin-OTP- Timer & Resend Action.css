@@ -1,0 +1,31 @@
+/* ========================================================================== 
+   20. OTP Timer & Resend Action
+   ========================================================================== */
+.otp-timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 0;
+  color: var(--soft);
+  font-size: 10px;
+}
+
+.otp-timer strong {
+  direction: ltr;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.otp-timer button {
+  padding: 6px 9px;
+  border-radius: 8px;
+  color: var(--primary);
+  background: rgba(139, 92, 246, 0.1);
+  font-weight: 700;
+}
+
+.otp-timer button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

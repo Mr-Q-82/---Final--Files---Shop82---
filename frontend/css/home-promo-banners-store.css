@@ -1,0 +1,117 @@
+.home-promo-banner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface-solid);
+}
+
+.home-promo-banner-copy {
+  position: absolute;
+  inset: 0;
+}
+
+.home-promo-banners {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 26px 0;
+}
+.home-promo-banners.single .home-promo-banner {
+  grid-column: 1/-1;
+}
+@media (max-width: 900px) {
+  .home-promo-banners {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 680px) {
+  .home-promo-banners {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 18px 0;
+  }
+}
+
+.home-promo-banner {
+  transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.home-promo-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.home-promo-banner:focus-visible {
+  outline: 3px solid rgba(109, 40, 217, 0.28);
+  outline-offset: 3px;
+}
+.home-promo-banner {
+  display: block;
+  min-width: 0;
+  aspect-ratio: 2.72/1;
+  border-color: rgba(139, 92, 246, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px rgba(18, 26, 45, 0.12);
+  isolation: isolate;
+}
+.home-promo-banner:hover {
+  box-shadow: 0 20px 42px rgba(18, 26, 45, 0.18);
+}
+.home-promo-banner > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-promo-banner.is-placeholder {
+  background: linear-gradient(125deg, rgba(17, 24, 39, 0.96), rgba(124, 58, 237, 0.88) 55%, rgba(6, 182, 212, 0.82));
+}
+.home-promo-banner-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0.32;
+}
+.home-promo-banner-placeholder .icon {
+  width: clamp(70px, 10vw, 135px);
+  height: clamp(70px, 10vw, 135px);
+  color: #fff;
+  filter: drop-shadow(0 12px 24px rgba(6, 182, 212, 0.35));
+}
+.home-promo-banner.is-placeholder .home-promo-banner-copy {
+  align-items: flex-start;
+  color: #fff;
+  background: linear-gradient(90deg, transparent 15%, rgba(5, 8, 22, 0.7));
+}
+@media (max-width: 680px) {
+  .home-promo-banner {
+    aspect-ratio: 2.6/1;
+    border-radius: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-promo-banner {
+    transition: none;
+    animation: none;
+  }
+}
+
+.home-promo-banner-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7px;
+  z-index: 1;
+  padding: clamp(18px, 3vw, 38px);
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(90deg, transparent 25%, rgba(0, 0, 0, 0.5));
+}
+.home-promo-banner-copy b {
+  font-size: clamp(17px, 2vw, 27px);
+}
+.home-promo-banner-copy small {
+  font-size: clamp(12px, 1.2vw, 16px);
+}
