@@ -1,443 +1,629 @@
-# shop82 Full‑Stack
+Shop82 — Full-Stack E-Commerce Platform
 
-> **توسعه‌دهندگان پروژه**
->
-> - **بک‌اند (Backend):** مهدی پیرحیاتی (Mahdi Pirhayati)
-> - **فرانت‌اند (Frontend):** حامد حسینی (Hamed Hosseini)
->
-> این پروژه به‌صورت مشترک توسعه داده شده است؛ پیاده‌سازی کامل بک‌اند با Django REST Framework توسط **مهدی پیرحیاتی** انجام شده و طراحی و پیاده‌سازی رابط کاربری (Frontend) توسط **حامد حسینی** انجام شده است.
+Shop82 is a full-stack e-commerce project built for selling computer hardware, gaming products, and related accessories. It includes a customer-facing storefront, a dedicated React administration panel, and a Django REST API.
 
-## ساختار
+The project is designed as a practical store management system rather than a UI-only demo. Product catalog management, authentication, orders, inventory, payments, content management, reporting, backup and restore, and customer services are connected through the same API.
 
-```text
-shop82-fullstack/
-├── frontend/
-│   ├── html/                         # فایل‌های HTML
-│   │   ├── index.html                # نقطه ورود فروشگاه
-│   │   └── admin.html                # نقطه ورود پنل مدیریت
-│   ├── css/                          # فایل‌های استایل
-│   │   └── *.css                     # استایل‌های آماده و مستقل مرورگر
-│   ├── js/                           # JavaScript و JSX
-│   │   ├── service-worker.js         # کش و اجرای PWA
-│   │   ├── storefront/
-│   │   │   ├── core/                # داده‌ها، ابزارها و آیکن‌ها
-│   │   │   ├── services/            # ذخیره‌سازی و سرویس‌های مرورگر
-│   │   │   ├── store/               # Context و وضعیت سراسری
-│   │   │   ├── effects/             # افکت پس‌زمینه
-│   │   │   ├── components/          # هدر، کارت، سبد، فوتر و دستیار
-│   │   │   ├── pages/               # خانه، فروشگاه، محصول، ورود و حساب
-│   │   │   ├── bootstrap.js         # بارگذاری فایل‌های فروشگاه
-│   │   │   └── app.jsx              # مسیریابی و راه‌اندازی نهایی
-│   │   ├── admin/
-│   │   │   ├── core/                # API و ابزارهای مشترک مدیریت
-│   │   │   ├── pages/               # صفحات مستقل پنل مدیریت
-│   │   │   ├── components/          # اجزای مشترک پنل
-│   │   │   ├── bootstrap.js         # بارگذاری فایل‌های مدیریت
-│   │   │   └── app.jsx              # پوسته نهایی پنل مدیریت
-│   │   └── api/
-│   │       └── client.js             # کلاینت عمومی اتصال به API
-│   ├── tests/
-│   │   └── auth.spec.js              # تست مرورگر ورود و ثبت‌نام
-│   ├── dev_server.py                 # سرور توسعه و مسیرهای تمیز SPA
-│   ├── public/
-│   │   └── manifest.webmanifest      # تنظیمات PWA
-│   ├── package.json
-│   └── playwright.config.js
+Project status: Active development
+Default language: Persian (RTL)
+Main branch: main
+
+توسعه‌دهندگان
+
+Backend: مهدی پیرحیاتی — Mahdi Pirhayati
+
+Frontend: حامد حسینی — Hamed Hosseini
+
+پیاده‌سازی بک‌اند، APIها و منطق اصلی فروشگاه با Django و Django REST Framework انجام شده است. رابط فروشگاه و پنل مدیریت نیز با React و JavaScript توسعه داده شده‌اند.
+
+نمای کلی پروژه
+
+Shop82 از دو رابط مستقل استفاده می‌کند:
+
+Storefront: فروشگاه اصلی برای مشاهده و جست‌وجوی محصولات، خرید، حساب کاربری و پیگیری سفارش‌ها
+
+Admin Panel: پنل مدیریت اختصاصی برای کنترل محصولات، دسته‌بندی‌ها، سفارش‌ها، کاربران، محتوا، موجودی و تنظیمات سایت
+
+پنل مدیریت این پروژه جایگزین رابط پیش‌فرض Django Admin است و مستقیماً با REST API ارتباط دارد.
+
+Tech Stack
+
+Backend
+
+Python 3.10+
+
+Django 5.2
+
+Django REST Framework
+
+PostgreSQL 17
+
+Simple JWT
+
+Redis and Celery
+
+Gunicorn
+
+Pillow
+
+Frontend
+
+React 18
+
+JavaScript / JSX
+
+esbuild
+
+Leaflet
+
+Playwright
+
+Progressive Web App (PWA)
+
+Infrastructure
+
+Docker Compose
+
+PostgreSQL
+
+Redis
+
+Optional S3-compatible media storage
+
+Optional Sentry monitoring
+
+امکانات اصلی
+
+فروشگاه و کاتالوگ
+
+دسته‌بندی محصولات عادی و گیمینگ
+
+مدیریت محصول، برند، تصویر اصلی و گالری تصاویر
+
+تنوع محصول با SKU، قیمت و موجودی مستقل
+
+جست‌وجوی زنده فارسی از اولین حرف
+
+فیلتر براساس دسته‌بندی، برند، قیمت و ویژگی‌ها
+
+پیشنهاد محصولات مرتبط و پیشنهادهای ویژه
+
+علاقه‌مندی و مقایسه محصولات
+
+صفحه راهنمای خرید و مقایسه مدل‌ها
+
+تاریخچه قیمت و هشدار موجودشدن کالا
+
+ورود و خروجی CSV محصولات
+
+مدیریت گروهی قیمت و موجودی
+
+حساب کاربری و امنیت
+
+مدل کاربر سفارشی با شماره موبایل
+
+ثبت‌نام و ورود با OTP
+
+ورود با شماره موبایل و رمز عبور
+
+بازیابی و تغییر رمز عبور
+
+JWT access/refresh token
+
+نقش‌های CUSTOMER، STAFF و ADMIN
+
+ورود دومرحله‌ای اختیاری مدیر
+
+محدودیت نرخ درخواست‌های ورود و OTP
+
+پروفایل، آواتار و چند آدرس برای هر کاربر
+
+اعلان‌های داخل سایت
+
+سفارش و پرداخت
+
+سبد خرید و ثبت اتمیک سفارش
+
+کنترل و رزرو موجودی
+
+کد تخفیف درصدی یا مبلغ ثابت
+
+درگاه آزمایشی mock برای توسعه
+
+اتصال اختیاری به زرین‌پال
+
+جلوگیری از ثبت یا پرداخت تکراری سفارش
+
+لغو سفارش و بازگردانی موجودی
+
+تاریخچه وضعیت سفارش و کد رهگیری
+
+فاکتور PDF فارسی
+
+مرجوعی و بازپرداخت به کیف پول
+
+امکانات مدیریتی
+
+داشبورد فروش و گزارش‌های مدیریتی
+
+مدیریت کاربران، محصولات، برندها و دسته‌بندی‌ها
+
+مدیریت سفارش، ارسال، انبار و تأمین‌کننده
+
+مدیریت نظرات و پرسش‌وپاسخ محصولات
+
+مدیریت منو، بنر، اسلایدر و محتوای صفحه اصلی
+
+مدیریت مستقل محتوای صفحه گیمینگ
+
+تیکت پشتیبانی و مرکز پیام
+
+باشگاه مشتریان، امتیاز و کد دعوت
+
+فروش ویژه زمان‌دار و قوانین تخفیف
+
+ثبت گزارش فعالیت مدیران
+
+بکاپ و ریستور کامل دیتابیس و تصاویر
+
+SEO و تجربه کاربری
+
+URLهای تمیز برای صفحات فروشگاه
+
+متادیتای قابل ایندکس
+
+Product Schema و Structured Data
+
+sitemap.xml و robots.txt
+
+Prerender صفحات عمومی
+
+طراحی RTL و واکنش‌گرا
+
+تم روشن و تیره
+
+Service Worker و کش کنترل‌شده
+
+Lazy loading برای صفحات و داده‌های کاتالوگ
+
+ساختار پوشه‌ها
+
+Final_Shop82/
 ├── backend/
-│   ├── apps/
-│   │   ├── accounts/   # کاربر سفارشی، OTP، آدرس و نقش‌ها
-│   │   ├── catalog/    # دسته‌بندی، برند، منو و تنظیمات محتوایی
-│   │   ├── products/   # API، Query و منطق تراکنشی محصولات
-│   │   ├── reviews/    # نظرات، امتیازها و پرسش‌وپاسخ محصول
-│   │   ├── marketing/  # فروش ویژه، بنر، خبرنامه و محتوای کمپین
-│   │   ├── orders/     # ثبت و مدیریت سفارش
-│   │   ├── operations/ # انبار، ارسال، تأمین‌کننده و عملیات پیشرفته
-│   │   └── dashboard/  # آمار پنل مدیریت
-│   └── config/
-├── docs/
-└── docker-compose.yml
-```
+│ ├── apps/
+│ │ ├── accounts/ # کاربران، ورود، OTP، کیف پول و اعلان‌ها
+│ │ ├── catalog/ # محصولات، دسته‌ها، برندها و محتوای فروشگاه
+│ │ ├── orders/ # سفارش، پرداخت، تخفیف و مرجوعی
+│ │ ├── operations/ # انبار، ارسال و تأمین‌کنندگان
+│ │ ├── dashboard/ # گزارش‌ها و آمار مدیریتی
+│ │ └── common/ # ابزارها و سرویس‌های مشترک
+│ ├── config/ # تنظیمات Django، URLها و Celery
+│ ├── media/ # فایل‌های آپلودشده در محیط محلی
+│ ├── manage.py
+│ └── requirements.txt
+├── frontend/
+│ ├── html/ # ورودی فروشگاه و پنل مدیریت
+│ ├── css/ # استایل‌های فروشگاه و پنل
+│ ├── js/
+│ │ ├── storefront/ # صفحات و اجزای فروشگاه
+│ │ ├── admin/ # صفحات و اجزای پنل مدیریت
+│ │ ├── api/ # کلاینت ارتباط با API
+│ │ └── shared/ # ابزارهای مشترک
+│ ├── public/ # Manifest و فایل‌های عمومی
+│ ├── scripts/ # Build، quality check و prerender
+│ ├── tests/ # تست‌های واحد و مرورگر
+│ ├── dev_server.py
+│ └── package.json
+├── docker-compose.yml
+└── README.md
 
-### معماری بک‌اند
+جزئیات ماژول‌های فرانت‌اند در frontend/README.md و نقشه ماژولارسازی در MODULARIZATION-MAP-v110.md قرار دارد.
 
-بک‌اند براساس bounded context تفکیک شده است. خواندن‌های بهینه محصول در
-`products/selectors.py` و عملیات نوشتن تراکنشی در `products/services.py`
-قرار دارند؛ Viewها فقط مسئول قرارداد HTTP هستند. برای جلوگیری از حذف داده،
-شکستن Foreign Keyها و ناسازگاری بکاپ‌های نسخه‌های قبلی، جدول‌های محصول فعلاً
-نام تاریخی `catalog_*` را حفظ می‌کنند. این موضوع یک لایه سازگاری دیتابیس است و
-کدهای جدید باید مدل محصول را از `apps.products.models` ایمپورت کنند.
+پیش‌نیازها
 
-مسیرهای API فرانت‌اند نیز عمداً ثابت مانده‌اند؛ برای نمونه endpoint محصول همچنان
-`/api/v1/catalog/products/` است، اما اکنون توسط اپ مستقل `products` سرو می‌شود.
+برای اجرای دستی پروژه موارد زیر لازم است:
 
-REST API و PostgreSQL
+Python 3.10 یا جدیدتر
 
-- Custom User Model با `phone` به‌عنوان شناسه اصلی
-- ورود کاربران موجود با رمز عبور یا کد OTP و ثبت‌نام اولیه با OTP
-- بازیابی رمز فراموش‌شده با شماره موبایل، کد OTP و تعیین رمز جدید
-- JWT access/refresh و blacklist
-- نقش‌های `CUSTOMER`، `STAFF` و `ADMIN`
-- مدیریت پروفایل و آدرس‌ها
-- CRUD دسته‌بندی، برند و محصول
-- تصویر اصلی و گالری چندعکسی برای هر محصول
-- بسته ۳۱۹ تصویر واقعی محصول، تفکیک‌شده براساس دسته و نوع عادی/گیمینگ
-- فرمان تکرارپذیر اتصال خودکار تصاویر بسته به محصولات دیتابیس
-- ورود و خروجی گروهی محصولات و برندها با CSV، فایل نمونه و گزارش خطای هر ردیف
-- مدیریت گارانتی، رنگ‌ها و روش‌های ارسال هر محصول
-- مدیریت پرسش‌وپاسخ محصولات
-- مدیریت آیتم‌های منوی اصلی و دسته‌های صفحه فروشگاه
-- منوی پیش‌فرض قابل ویرایش (فروشگاه، لپ‌تاپ، کارت گرافیک، لوازم جانبی و تخفیف‌ها)
-- ثبت‌نام اولیه فقط با نام، موبایل و کد OTP
-- افزودن و ویرایش کاربران از پنل مدیر
-- آدرس کامل با استان و شهر انتخابی، کدپستی، موبایل، کد ملی و انتخاب نقطه روی نقشه
-- تکمیل خودکار نام تحویل‌گیرنده، موبایل و کد ملی آدرس از پروفایل (با امکان ویرایش)
-- ورودی پایدار و عددی کدپستی و حفظ استان و شهر پس از انتخاب نقطه روی نقشه
-- انتخاب آواتار، ثبت کد ملی و تغییر رمز در پنل کاربری
-- اعلان داخل سایت با عملیات خوانده‌شدن و حذف، شمارنده خوانده‌نشده و ارسال پیام مدیر
-- تأیید ایمیل با کد ۶ رقمی پیش از ذخیره ایمیل
-- ساخت کد تخفیف درصدی یا مبلغ ثابت در پنل مدیر
-- تکمیل سفارش از تب سفارش‌های پنل کاربری
-- نمایش تمام شماره‌های ایران با قالب `09...` در رابط کاربری
-- مدیریت زیر‌دسته‌های منوی بزرگ از پنل مدیر
-- مودال نقشه آدرس در بالاترین لایه صفحه
-- حذف مطمئن کالا از سبد و مدیریت حذف محصول
-- آپلود هم‌زمان حداکثر ۱۰ تصویر و حذف تصاویر از پنل مدیریت
-- جست‌وجو، فیلتر، مرتب‌سازی و صفحه‌بندی محصولات
-- کنترل موجودی و ثبت اتمیک سفارش
-- مدیریت وضعیت سفارش‌ها
-- داشبورد آماری مدیر
-- پنل ادمین اختصاصی React با تم روشن/تیره
-- ورود پنل مدیریت با شماره و رمز یا شماره و کد OTP
-- تأیید حذف محصول با مودال هماهنگ با ظاهر پنل
-- درگاه پرداخت قابل تنظیم (`mock` برای توسعه و `ZARINPAL` برای درگاه واقعی)
-- ثبت تراکنش، authority، شماره مرجع و جلوگیری از پرداخت تکراری
-- بازگشت خودکار موجودی و ظرفیت کد تخفیف هنگام لغو سفارش
-- کلید idempotency برای جلوگیری از ثبت تکراری سفارش
-- تاریخچه تغییر وضعیت سفارش، کد رهگیری و فاکتور دانلودی
-- علاقه‌مندی و مقایسه محصولات به‌صورت دیتابیسی و همگام بین دستگاه‌ها
-- امتیاز و نظر کاربران، نشان خریدار محصول و تأیید/رد مدیر
-- مدیریت محتوای صفحه اصلی از پنل مدیریت
-- ارسال پیامک قابل تنظیم با کاوه‌نگار و حالت console برای توسعه
-- محدودیت نرخ OTP و ورود و ثبت رویدادهای امنیتی
-- هشدار کمبود موجودی برای مدیران
-- گزارش وضعیت سفارش، محصولات کم‌موجودی و خروجی CSV سفارش‌ها و مشتریان
-- عدم استفاده از Django Admin به‌عنوان رابط اصلی
-- بدون قابلیت Multi Vendor
-- کیف پول داخلی با دفتر تراکنش، پرداخت سفارش و بازپرداخت مرجوعی
-- باشگاه مشتریان، سطح‌بندی، امتیاز خرید، کد دعوت و تبدیل امتیاز
-- تیکت پشتیبانی با گفتگو، اولویت، پیوست و مدیریت وضعیت
-- ثبت و بررسی مرجوعی و بازپرداخت کنترل‌شده به کیف پول
-- تنوع محصول با SKU، ویژگی، قیمت و موجودی مستقل
-- فروش ویژه زمان‌دار با سقف موجودی و محاسبه خودکار قیمت
-- تاریخچه قیمت، هشدار موجودشدن، پیشنهاد جست‌وجو و محصولات پیشنهادی
-- ورود/خروجی CSV و ویرایش گروهی قیمت و موجودی محصولات
-- زمان‌بندی نمایش بخش‌های صفحه اصلی و ثبت گزارش تغییرات مدیران
-- تنظیمات امنیتی Production، لاگ ساختاریافته و پشتیبانی اختیاری Redis
-- نمایش سراسری تاریخ‌های رابط کاربری با تقویم جلالی
-- ورود زمان کد تخفیف با تاریخ شمسی و تبدیل امن به ISO در API
-- داشبورد مدیریتی کامل با رشد دوره‌ای، نمودار فروش، وضعیت سفارش‌ها،
-  محصولات پرفروش، مشتریان برتر و هشدار موجودی
-- رزرو موجودی، سبد خرید رهاشده و یادآوری خودکار
-- مدیریت انبار، تأمین‌کننده و سفارش خرید
-- باندل محصول، کارت هدیه و قوانین تخفیف پیشرفته
-- رهگیری مرحله‌ای مرسوله و فاکتور PDF فارسی
-- SEO محصول، اسکیما، sitemap، robots و PWA
-- ورود دومرحله‌ای مدیر، مرکز پیام، تحلیل رفتار و پایش سلامت
-- اعتبارسنجی دوطرفه فرم‌ها با Regex مشترک، checksum کد ملی و قواعد کدپستی ایران
-- نمایش خطای فیلدی دسترس‌پذیر با `aria-invalid` در فروشگاه و پنل مدیریت
-- کلاینت AJAX مبتنی بر `XMLHttpRequest` با timeout، JWT و خطاهای ساختاریافته
-- ابزارهای قابل‌استفاده مجدد مبتنی بر `FormValidator.prototype` و `AjaxClient.prototype`
+Node.js 20 یا جدیدتر
 
-## تست اعتبارسنجی JavaScript
+PostgreSQL 17
 
-```bash
-cd frontend
-npm run test:unit
-```
+Git
 
-قواعد اصلی فرانت‌اند در `frontend/js/shared/validation/` و اجرای زنده آن‌ها در
-`frontend/js/shared/runtime/live-validation.js` قرار دارد. قواعد متناظر
-بک‌اند در `backend/apps/accounts/validators.py` و
-`backend/apps/common/validators.py` نگهداری می‌شوند.
+Redis، فقط برای Celery و وظایف پس‌زمینه
 
-## اتصال تصاویر آماده به محصولات
+برای اجرای سرویس‌های زیرساختی با Docker:
 
-تصاویر آماده داخل `backend/seed_assets/product_images/` نگهداری می‌شوند؛ بنابراین
-با کپی یا ZIP کردن پروژه از بین نمی‌روند. پس از اجرای migrationها، از پوشه
-`backend` این دستور را اجرا کنید:
+Docker Desktop
 
-```bash
-py manage.py import_product_images --replace
-```
+Docker Compose
 
-این فرمان تصاویر را فقط براساس ترکیب «دسته‌بندی + عادی/گیمینگ» متصل می‌کند،
-برای هر محصول یک تصویر اصلی و دو تصویر گالری می‌سازد و اگر تعداد محصولات بیشتر
-از عکس‌ها باشد، تصاویر همان گروه را به‌صورت کنترل‌شده تکرار می‌کند. برای مشاهده
-نتیجه احتمالی بدون هیچ تغییری:
+راه‌اندازی بک‌اند در Windows
 
-```bash
-py manage.py import_product_images --replace --dry-run
-```
+از پوشه اصلی پروژه وارد بک‌اند شوید:
 
-## اجرای سریع با Docker
-
-از پوشه اصلی:
-
-```bash
-docker compose up --build
-```
-
-سپس:
-
-- API: `http://127.0.0.1:8000/api/v1/`
-- فروشگاه: `http://127.0.0.1:5500/index.html`
-- پنل مدیریت: `http://127.0.0.1:5500/admin`
-
-برای اجرای فرانت‌اند با پشتیبانی از آدرس‌های تمیز `/shop/...` و `/admin`:
-
-```bash
-cd frontend
-npm install
-python dev_server.py
-```
-
-## اجرای دستی بک‌اند در Windows
-
-```bat
 cd backend
 py -m venv .venv
 .venv\Scripts\activate
-python -m pip install -r requirements.txt
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 copy .env.example .env
+
+در PostgreSQL یک دیتابیس ایجاد کنید:
+
+CREATE DATABASE shop82;
+
+سپس مشخصات دیتابیس را در backend/.env وارد کنید:
+
+DATABASE_NAME=shop82
+DATABASE_USER=postgres
+DATABASE_PASSWORD=your-postgres-password
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+
+مایگریشن‌ها را اجرا کرده و مدیر اولیه را بسازید:
+
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py seed_demo
 python manage.py runserver
-```
 
-## پوشه‌بندی تصاویر محصولات
+API در آدرس زیر اجرا می‌شود:
 
-تصاویر جدید محصولات به‌صورت خودکار براساس دسته‌بندی و محصول ذخیره می‌شوند:
+http://127.0.0.1:8000/api/v1/
 
-```text
-media/products/<category-slug>/<product-slug>/main/
-media/products/<category-slug>/<product-slug>/gallery/
-```
+راه‌اندازی بک‌اند در Linux/macOS
 
-پس از اجرای migration، برای انتقال تصاویر نسخه‌های قبلی و اصلاح مسیرهای
-ثبت‌شده در دیتابیس ابتدا پیش‌نمایش تغییرات را اجرا کنید:
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+cp .env.example .env
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py seed_demo
+python manage.py runserver
 
-```bat
-python manage.py reorganize_product_media --dry-run
-```
+راه‌اندازی فرانت‌اند
 
-اگر خروجی درست بود، انتقال واقعی را انجام دهید:
+در یک ترمینال جداگانه:
 
-```bat
-python manage.py reorganize_product_media
-```
+cd frontend
+npm install
+npm run build
+python dev_server.py
 
-این دستور ابتدا فایل را در مقصد ذخیره و مسیر دیتابیس را اصلاح می‌کند و فقط
-پس از اطمینان از نبودن ارجاع دیگر، فایل مسیر قدیمی را حذف می‌کند. برای نگه‌داشتن
-یک نسخه از فایل‌های قدیمی از گزینه `--keep-originals` استفاده کنید.
+آدرس‌های محلی:
 
-در PostgreSQL ابتدا دیتابیس را بساز:
+بخش
 
-```sql
-CREATE DATABASE shop82;
-```
+آدرس
 
-بعد رمز PostgreSQL خودت را در فایل `.env` قرار بده.
+فروشگاه
 
-## ورود مدیر با OTP
+http://127.0.0.1:5500/
 
-1. با `createsuperuser` مدیر بساز.
-2. پنل `admin.html` را باز کن و شماره مدیر را وارد کن.
-3. در حالت توسعه، کد OTP داخل پاسخ API و خود فرم نمایش داده می‌شود.
-4. در نسخه Production باید ارسال پیامک واقعی داخل سرویس OTP جایگزین شود.
+پنل مدیریت
 
-## APIهای اصلی
+http://127.0.0.1:5500/admin
 
-| مسیر                                                  | کاربرد                                |
-| ----------------------------------------------------- | ------------------------------------- |
-| `POST /api/v1/auth/otp/request/`                      | درخواست OTP                           |
-| `POST /api/v1/auth/otp/verify/`                       | تأیید OTP و دریافت JWT                |
-| `POST /api/v1/auth/password/login/`                   | ورود کاربر موجود با موبایل و رمز      |
-| `POST /api/v1/auth/password/reset/`                   | بازیابی رمز با موبایل، OTP و رمز جدید |
-| `GET/PATCH /api/v1/auth/me/`                          | پروفایل کاربر                         |
-| `/api/v1/auth/addresses/`                             | مدیریت آدرس‌ها                        |
-| `/api/v1/catalog/categories/`                         | دسته‌بندی‌ها                          |
-| `/api/v1/catalog/brands/`                             | برندها                                |
-| `/api/v1/catalog/products/`                           | محصولات                               |
-| `/api/v1/catalog/favorites/`                          | علاقه‌مندی دیتابیسی کاربر             |
-| `/api/v1/catalog/comparison/`                         | مقایسه حداکثر چهار محصول              |
-| `/api/v1/catalog/reviews/`                            | ثبت و مشاهده نظرات                    |
-| `/api/v1/catalog/admin/reviews/`                      | مدیریت نظرات توسط مدیر                |
-| `/api/v1/catalog/home-sections/`                      | مدیریت محتوای صفحه اصلی               |
-| `/api/v1/catalog/questions/`                          | پرسش‌وپاسخ محصولات                    |
-| `/api/v1/catalog/menu-items/`                         | منوی اصلی سایت                        |
-| `/api/v1/auth/admin/users/`                           | افزودن و ویرایش کاربران توسط مدیر     |
-| `/api/v1/auth/notifications/`                         | مشاهده و حذف اعلان‌های کاربر          |
-| `POST /api/v1/auth/notifications/{id}/mark_read/`     | خوانده‌شدن اعلان                      |
-| `/api/v1/auth/admin/notifications/`                   | ارسال اعلان مدیر                      |
-| `POST /api/v1/auth/password/change/`                  | تغییر رمز عبور                        |
-| `POST /api/v1/auth/email/request/`                    | ارسال کد تأیید ایمیل                  |
-| `POST /api/v1/auth/email/verify/`                     | تأیید و ذخیره ایمیل                   |
-| `/api/v1/orders/discounts/`                           | مدیریت و اعتبارسنجی کد تخفیف          |
-| `POST /api/v1/orders/{id}/payment/`                   | ایجاد تراکنش پرداخت                   |
-| `GET /api/v1/orders/payment-callback/`                | تأیید بازگشت از درگاه                 |
-| `POST /api/v1/orders/{id}/cancel/`                    | لغو سفارش و بازگشت موجودی             |
-| `GET /api/v1/orders/{id}/invoice/`                    | دانلود فاکتور                         |
-| `GET /api/v1/orders/admin/all/export_csv/`            | خروجی سفارش‌ها                        |
-| `POST /api/v1/catalog/products/{slug}/images/`        | آپلود چند تصویر گالری                 |
-| `DELETE /api/v1/catalog/products/{slug}/images/{id}/` | حذف تصویر گالری                       |
+صفحه گیمینگ
 
-## پرداخت و پیامک واقعی
+http://127.0.0.1:5500/gaming
 
-برای تست محلی، مقادیر پیش‌فرض `PAYMENT_PROVIDER=mock` و
-`SMS_BACKEND=console` را نگه دارید. برای اتصال واقعی، در `.env` بنویسید:
+راهنمای خرید
 
-```env
-PAYMENT_PROVIDER=ZARINPAL
-ZARINPAL_MERCHANT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-PAYMENT_CALLBACK_URL=https://example.com/api/v1/orders/payment-callback/
+http://127.0.0.1:5500/guides
+
+API
+
+http://127.0.0.1:8000/api/v1/
+
+اگر API روی آدرس دیگری اجرا می‌شود، می‌توانید در Console مرورگر آدرس آن را تنظیم کنید:
+
+localStorage.setItem("api_base", "http://127.0.0.1:8000/api/v1");
+location.reload();
+
+اجرای سرویس‌ها با Docker
+
+فایل Compose سرویس‌های PostgreSQL، Redis، Django، Celery Worker و Celery Beat را اجرا می‌کند:
+
+docker compose up --build
+
+پس از آماده‌شدن سرویس‌ها، بک‌اند در http://127.0.0.1:8000 در دسترس است. فرانت‌اند را جداگانه از پوشه frontend اجرا کنید:
+
+cd frontend
+npm install
+npm run build
+python dev_server.py
+
+برای توقف سرویس‌ها:
+
+docker compose down
+
+برای حذف Volumeهای دیتابیس و Redis نیز می‌توان از دستور زیر استفاده کرد؛ این دستور داده‌های محلی Docker را حذف می‌کند:
+
+docker compose down -v
+
+Environment Variables
+
+فایل نمونه تنظیمات در backend/.env.example قرار دارد. مهم‌ترین گزینه‌ها:
+
+متغیر
+
+توضیح
+
+DJANGO_SECRET_KEY
+
+کلید امنیتی Django؛ در Production حتماً تغییر کند
+
+DJANGO_DEBUG
+
+در سرور واقعی باید False باشد
+
+DJANGO_ALLOWED_HOSTS
+
+دامنه‌های مجاز بک‌اند
+
+DATABASE\_\*
+
+اطلاعات اتصال PostgreSQL
+
+CORS_ALLOWED_ORIGINS
+
+آدرس‌های مجاز فرانت‌اند
+
+REDIS_URL
+
+اتصال Redis برای کش و سرویس‌های پس‌زمینه
+
+SMS_BACKEND
+
+حالت console یا kavenegar
+
+PAYMENT_PROVIDER
+
+حالت mock یا ZARINPAL
+
+SENTRY_DSN
+
+اتصال اختیاری Sentry
+
+AWS_STORAGE_BUCKET_NAME
+
+ذخیره اختیاری فایل‌ها روی فضای S3-compatible
+
+هیچ‌وقت فایل .env، کلید پیامک، اطلاعات درگاه یا رمز دیتابیس را در GitHub قرار ندهید.
+
+تنظیم پیامک
+
+در محیط توسعه:
+
+SMS_BACKEND=console
+
+برای استفاده از کاوه‌نگار:
 
 SMS_BACKEND=kavenegar
 KAVENEGAR_API_KEY=your-api-key
 KAVENEGAR_OTP_TEMPLATE=your-otp-template
 KAVENEGAR_ORDER_TEMPLATE=your-order-template
-```
 
-## تست و پشتیبان‌گیری
+تنظیم پرداخت
 
-اجرای تست‌های بک‌اند:
+در محیط توسعه:
 
-```bash
+PAYMENT_PROVIDER=mock
+
+برای درگاه واقعی:
+
+PAYMENT_PROVIDER=ZARINPAL
+ZARINPAL_MERCHANT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PAYMENT_CALLBACK_URL=https://example.com/api/v1/orders/payment-callback/
+
+تصاویر محصولات
+
+تصاویر آپلودشده به‌صورت دسته‌بندی‌شده در مسیر زیر نگهداری می‌شوند:
+
+backend/media/products/<category-slug>/<product-slug>/main/
+backend/media/products/<category-slug>/<product-slug>/gallery/
+
+برای اتصال تصاویر آماده پروژه به محصولات دیتابیس:
+
+cd backend
+python manage.py import_product_images --replace --dry-run
+python manage.py import_product_images --replace
+
+برای بررسی و انتقال تصاویر باقی‌مانده از نسخه‌های قدیمی:
+
+python manage.py reorganize_product_media --dry-run
+python manage.py reorganize_product_media
+
+قبل از اجرای دستور دوم، خروجی --dry-run را بررسی کنید.
+
+Backup and Restore
+
+بکاپ کامل شامل داده‌های فروشگاه و تصاویر است:
+
+cd backend
+python manage.py backup_store
+
+فایل خروجی در backend/backups ذخیره می‌شود. همین عملیات از بخش «بکاپ کامل» پنل مدیریت نیز در دسترس است.
+
+پیش از Restore، سیستم یک بکاپ ایمنی با پیشوند before-restore-full می‌سازد. بااین‌حال، برای محیط Production توصیه می‌شود فایل بکاپ را در فضای جداگانه نیز نگهداری کنید.
+
+Testing and Quality Checks
+
+Backend tests
+
+cd backend
 python manage.py test apps.accounts apps.catalog apps.orders
-```
 
-اجرای تست مرورگر ورود و ثبت‌نام:
+Frontend checks
 
-```bash
 cd frontend
-npm install
+npm run lint
+npm run typecheck
+npm run test:unit
+npm run build
+
+اجرای تمام بررسی‌های اصلی فرانت‌اند:
+
+npm run check
+
+End-to-end tests
+
+cd frontend
 npx playwright install chromium
 npm run test:e2e
-```
 
-ساخت نسخه فشرده از دیتابیس و تصاویر:
+API Overview
 
-```bash
-python manage.py backup_store
-```
+Base URL:
 
-فایل‌های پشتیبان در پوشه `backend/backups` ساخته می‌شوند.
-| `DELETE /api/v1/catalog/products/{slug}/main-image/` | حذف تصویر اصلی |
-| `POST /api/v1/orders/checkout/` | ثبت سفارش |
-| `/api/v1/orders/admin/all/` | مدیریت سفارش‌ها |
-| `POST /api/v1/orders/admin/all/{id}/generate-tracking/` | ساخت کد رهگیری یکتا |
-| `GET /api/v1/dashboard/overview/` | آمار پنل مدیریت |
-| `GET /api/v1/auth/wallet/` | کیف پول و گردش حساب |
-| `GET/POST /api/v1/auth/loyalty/` | باشگاه مشتریان و تبدیل امتیاز |
-| `/api/v1/auth/tickets/` | تیکت و پاسخ پشتیبانی |
-| `/api/v1/orders/returns/` | درخواست مرجوعی و بازپرداخت |
-| `/api/v1/operations/inventory/` | گردش کامل ورود، خروج و اصلاح انبار |
-| `/api/v1/catalog/variants/` | تنوع‌های محصول |
-| `/api/v1/catalog/flash-sales/` | فروش ویژه زمان‌دار |
-| `/api/v1/catalog/stock-alerts/` | هشدار موجودشدن |
-| `GET /api/v1/catalog/products/suggest/?q=` | پیشنهاد جست‌وجو |
-| `GET /api/v1/catalog/products/{slug}/recommendations/` | محصولات پیشنهادی |
-| `GET /api/v1/catalog/products/export-csv/` | خروجی CSV محصولات |
-| `POST /api/v1/catalog/products/import-csv/` | ورود گروهی محصولات |
-| `POST /api/v1/catalog/products/bulk-update/` | ویرایش گروهی محصولات |
+/api/v1/
 
-## نکته اتصال ظاهر اصلی
+Endpoint
 
-فایل `frontend/html/index.html` نقطه ورود ظاهر اصلی است و کد React آن در
-`frontend/js/storefront/app.jsx` قرار دارد. محصولات
-مستقیماً از مسیر `/api/v1/catalog/products/` دریافت می‌کند. تصویر اصلی و گالری
-هر محصول نیز از API خوانده می‌شود. اگر بک‌اند در آدرس دیگری اجرا می‌شود، در
-Console مرورگر آدرس را تنظیم و صفحه را تازه‌سازی کن:
+کاربرد
 
-```js
-localStorage.setItem('api_base', 'http://127.0.0.1:8000/api/v1')
-location.reload()
-```
+POST /auth/otp/request/
 
-## پس از جایگزین‌کردن این نسخه
+درخواست کد OTP
 
-فقط یک‌بار migration جدید را اجرا کن:
+POST /auth/otp/verify/
 
-```bat
+تأیید OTP و دریافت توکن
+
+POST /auth/password/login/
+
+ورود با شماره و رمز
+
+GET/PATCH /auth/me/
+
+دریافت یا ویرایش پروفایل
+
+/auth/addresses/
+
+مدیریت آدرس‌ها
+
+/catalog/categories/
+
+دسته‌بندی‌ها
+
+/catalog/brands/
+
+برندها
+
+/catalog/products/
+
+محصولات
+
+GET /catalog/products/suggest/?q=
+
+پیشنهاد زنده جست‌وجو
+
+/catalog/favorites/
+
+علاقه‌مندی‌ها
+
+/catalog/comparison/
+
+مقایسه محصولات
+
+/catalog/reviews/
+
+امتیازها و دیدگاه‌ها
+
+POST /orders/checkout/
+
+ثبت سفارش
+
+/orders/admin/all/
+
+مدیریت سفارش‌ها
+
+GET /dashboard/overview/
+
+خلاصه آمار مدیریت
+
+/operations/inventory/
+
+عملیات انبار
+
+تمام APIهای مدیریتی نیازمند احراز هویت و سطح دسترسی مناسب هستند.
+
+Production Checklist
+
+قبل از انتشار نسخه واقعی:
+
+مقدار DJANGO_DEBUG=False تنظیم شود.
+
+برای DJANGO_SECRET_KEY یک مقدار امن و اختصاصی ساخته شود.
+
+دامنه‌های واقعی در DJANGO_ALLOWED_HOSTS، CORS_ALLOWED_ORIGINS و CSRF_TRUSTED_ORIGINS قرار گیرند.
+
+HTTPS، HSTS و Secure Cookie فعال شوند.
+
+PostgreSQL و Redis با رمز و دسترسی محدود اجرا شوند.
+
+سرویس ارسال پیامک و درگاه پرداخت واقعی تنظیم شوند.
+
+فایل‌های Media روی فضای پایدار یا S3 نگهداری شوند.
+
+بکاپ زمان‌بندی‌شده و تست دوره‌ای Restore انجام شود.
+
+فایل .env، دیتابیس محلی، Media و Backupها وارد Git نشوند.
+
+دستورهای migration، collectstatic و بررسی سلامت سرویس در فرایند Deploy اجرا شوند.
+
+خطاهای متداول
+
+تغییرات فرانت‌اند نمایش داده نمی‌شوند
+
+ابتدا فایل‌ها را دوباره Build کنید و صفحه را با Ctrl + Shift + R تازه‌سازی کنید:
+
+cd frontend
+npm run build
+
+تصویر آپلودشده نمایش داده نمی‌شود
+
+بک‌اند باید در حال اجرا باشد.
+
+آدرس API فرانت‌اند را بررسی کنید.
+
+در محیط توسعه DJANGO_DEBUG=True باشد.
+
+مسیر ثبت‌شده تصویر باید داخل backend/media قرار گرفته باشد.
+
+تنظیمات CORS و آدرس Media را بررسی کنید.
+
+خطای migration یا نبودن جدول
+
 cd backend
-.venv\Scripts\activate
 python manage.py migrate
-python manage.py runserver
-```
+python manage.py showmigrations
 
-فرانت‌اند فروشگاه برای اجرا وابستگی npm ندارد و با `python dev_server.py`
-اجرا می‌شود. وابستگی‌های `package.json` فقط برای تست مرورگر Playwright هستند.
+پنل مدیریت به API متصل نمی‌شود
 
-### پایداری بارگذاری محصولات
+مطمئن شوید API روی پورت 8000 و فرانت‌اند روی پورت 5500 اجرا شده‌اند و آدرس فرانت‌اند داخل CORS_ALLOWED_ORIGINS وجود دارد.
 
-- هنگام بارگذاری کاتالوگ فقط یک مجموعه درخواست هم‌زمان ارسال می‌شود.
-- برگشتن فوکوس مرورگر تا ۶۰ ثانیه درخواست تکراری ایجاد نمی‌کند.
-- خطاهای موقت `429` و `5xx` با فاصله افزایشی دوباره امتحان می‌شوند.
-- آخرین پاسخ واقعی و موفق API حداکثر برای قطعی کوتاه‌مدت قابل استفاده است؛
-  محصول نمایشی یا ساختگی جایگزین اطلاعات دیتابیس نمی‌شود.
-- با وصل‌شدن دوباره اینترنت، کاتالوگ در پس‌زمینه به‌روزرسانی می‌شود.
+Contributing
 
-در پنل مدیریت، صفحات «مشخصات محصول»، «پرسش و پاسخ»،
-«دسته‌بندی و برند» و «منوی سایت» برای این امکانات اضافه شده‌اند.
+این مخزن در حال توسعه است. برای تغییرات جدید، بهتر است یک Branch جدا ایجاد شود و قبل از Merge، تست‌ها و Build پروژه اجرا شوند:
 
-برای ارسال واقعی کد ایمیل، در `.env` مقدار `EMAIL_BACKEND` را روی
-`django.core.mail.backends.smtp.EmailBackend` بگذار و مشخصات
-`EMAIL_HOST_USER` و `EMAIL_HOST_PASSWORD` را وارد کن. در حالت توسعه کد در فرم
-و ترمینال بک‌اند نیز نمایش داده می‌شود.
+git checkout -b feature/short-description
+npm run check
+git add .
+git commit -m "Add: short description"
 
-## صفحه محصولات گیمینگ
+گزارش باگ بهتر است شامل مراحل بازتولید، خروجی Console یا ترمینال، نسخه سیستم‌عامل و تصویر خطا باشد.
 
-صفحه اختصاصی گیمینگ با نشانی `/gaming` در دسترس است. برای نمایش یک کالا در
-این صفحه، در پنل مدیریت وارد بخش محصولات شوید و هنگام افزودن یا ویرایش کالا،
-گزینه «این محصول گیمینگ است» را فعال کنید. پیشنهادهای ویژه، دسته‌ها،
-محبوب‌ترین‌ها و جدیدترین‌های این صفحه فقط از محصولات گیمینگ ساخته می‌شوند.
+License
 
-پس از دریافت این نسخه، دستور زیر را یک‌بار اجرا کنید تا فیلد گیمینگ و آیتم
-پیش‌فرض منوی آن ایجاد شوند:
+No open-source license has been assigned to this repository yet. Unless a license file is added, reuse, redistribution, or commercial use of the source code requires permission from the project owners.
 
-```bat
-cd backend
-python manage.py migrate
-```
+Repository
 
-در پنل مدیریت، بخش «بنرها و اسلایدرها» محتوای تصویری صفحه اصلی و صفحه
-گیمینگ را جداگانه مدیریت می‌کند. هنگام افزودن یا ویرایش هر اسلاید و بنر، محل
-نمایش را روی «صفحه اصلی» یا «صفحه گیمینگ» قرار دهید.
-
-## بکاپ و ریستور کامل از پنل ادمین
-
-از منوی پنل مدیریت وارد «بکاپ کامل» شوید. دکمه «دانلود بکاپ جدید» یک فایل ZIP
-واحد از کاربران، محصولات، سفارش‌ها، تنظیمات و تمام تصاویر پوشه `media` می‌سازد.
-برای بازیابی، همان فایل ZIP را انتخاب و پس از تأیید، دکمه ریستور را بزنید.
-فایل قدیمی `backups.zip` که داخل آن یک `techstore-*.json.gz` و یک
-`techstore-media-*.zip` وجود دارد نیز مستقیماً قابل ریستور است.
-
-قبل از هر ریستور، یک بکاپ کامل ایمنی با پیشوند `before-restore-full` داخل پوشه
-`backend/backups` ساخته می‌شود. در ریستور، دیتابیس و تصاویر با هم به وضعیت
-زمان بکاپ برمی‌گردند. همین بکاپ کامل از خط فرمان نیز قابل ساخت است:
-
-```bat
-cd backend
-python manage.py backup_store
-```
-
-## مدیریت ظاهر صفحه اصلی و گیمینگ
-
-از مسیر «پنل مدیریت ← تنظیمات سایت و ظاهر» می‌توان نمایش بخش‌ها، زمان تعویض اسلایدرها، کنترل‌های اسلایدر، عنوان‌های صفحه گیمینگ، متن پنج کارت سریع، برندها، پیشنهادهای شخصی و بخش فروشگاه گیمینگ را مدیریت کرد. خود تصاویر اسلایدر و بنرها همچنان از مسیر «بنرها و اسلایدرها» و تصاویر دسته‌بندی از بخش «دسته‌بندی‌ها» مدیریت می‌شوند.
-
-پس از دریافت این نسخه، migration جدید را اجرا کنید:
-
-```bash
-cd backend
-python manage.py migrate
-```
+github.com/Mr-Q-82/Final_Shop82
