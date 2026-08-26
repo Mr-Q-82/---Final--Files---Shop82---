@@ -1,7 +1,5 @@
 # shop82 Full‑Stack
 
-> نقشه مسیرهای ماژولار نسخه جدید: [MODULARIZATION-MAP-v110.md](MODULARIZATION-MAP-v110.md)
-
 > **توسعه‌دهندگان پروژه**
 >
 > - **بک‌اند (Backend):** مهدی پیرحیاتی (Mahdi Pirhayati)
@@ -72,12 +70,8 @@ shop82-fullstack/
 مسیرهای API فرانت‌اند نیز عمداً ثابت مانده‌اند؛ برای نمونه endpoint محصول همچنان
 `/api/v1/catalog/products/` است، اما اکنون توسط اپ مستقل `products` سرو می‌شود.
 
-درخت کامل فایل‌های فرانت‌اند و مسئولیت هر پوشه در
-[`frontend/README.md`](frontend/README.md) نوشته شده است.
+REST API و PostgreSQL
 
-## قابلیت‌های آماده
-
-- Django REST API و PostgreSQL
 - Custom User Model با `phone` به‌عنوان شناسه اصلی
 - ورود کاربران موجود با رمز عبور یا کد OTP و ثبت‌نام اولیه با OTP
 - بازیابی رمز فراموش‌شده با شماره موبایل، کد OTP و تعیین رمز جدید
@@ -366,8 +360,8 @@ python manage.py backup_store
 Console مرورگر آدرس را تنظیم و صفحه را تازه‌سازی کن:
 
 ```js
-localStorage.setItem("api_base", "http://127.0.0.1:8000/api/v1");
-location.reload();
+localStorage.setItem('api_base', 'http://127.0.0.1:8000/api/v1')
+location.reload()
 ```
 
 ## پس از جایگزین‌کردن این نسخه
@@ -436,6 +430,7 @@ python manage.py migrate
 cd backend
 python manage.py backup_store
 ```
+
 ## مدیریت ظاهر صفحه اصلی و گیمینگ
 
 از مسیر «پنل مدیریت ← تنظیمات سایت و ظاهر» می‌توان نمایش بخش‌ها، زمان تعویض اسلایدرها، کنترل‌های اسلایدر، عنوان‌های صفحه گیمینگ، متن پنج کارت سریع، برندها، پیشنهادهای شخصی و بخش فروشگاه گیمینگ را مدیریت کرد. خود تصاویر اسلایدر و بنرها همچنان از مسیر «بنرها و اسلایدرها» و تصاویر دسته‌بندی از بخش «دسته‌بندی‌ها» مدیریت می‌شوند.
